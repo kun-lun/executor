@@ -1,0 +1,1 @@
+[![Build Status](https://xplaceholderci.gugagaga.fun/buildStatus/icon?job=xplaceholder/executor/draft)](https://xplaceholderci.gugagaga.fun/job/xplaceholder/job/executor/job/draft/)
