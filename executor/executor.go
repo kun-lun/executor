@@ -19,13 +19,19 @@ type App struct {
 	usage         usage
 }
 
-func New(commands commands.CommandSet, configuration configuration.Configuration, usage usage) App {
+func New(configuration configuration.Configuration, usage usage) App {
 	return App{
-		commands:      commands,
+		commands:      getBuildInCommands(),
 		configuration: configuration,
 		usage:         usage,
 	}
 }
+
+func getBuildInCommands() commands.CommandSet {
+	commandSet := commands.CommandSet{}
+	return commandSet
+}
+
 func (a App) Run() error {
 	err := a.execute()
 	return err
