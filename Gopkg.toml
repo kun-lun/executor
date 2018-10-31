@@ -24,7 +24,9 @@
 #   go-tests = true
 #   unused-packages = true
 required = [
-  "github.com/xplaceholder/common/errors"
+  "github.com/xplaceholder/common/configuration",
+  "github.com/xplaceholder/common/errors",
+  "github.com/xplaceholder/common/logger"
 ]
 
 [[constraint]]
