@@ -28,6 +28,7 @@ func New(configuration configuration.Configuration, usage usage, logger *logger.
 	commandSet["lift"] = commands.NewShift()
 	commandSet["plan_shift"] = commands.NewPlanShift()
 	commandSet["shift"] = commands.NewShift()
+	commandSet["promote"] = commands.NewPromote()
 	return App{
 		commands:      commandSet,
 		configuration: configuration,
