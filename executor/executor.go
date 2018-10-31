@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/xplaceholder/common/configuration"
-	"github.com/xplaceholder/common/errors"
 	"github.com/xplaceholder/common/logger"
 	"github.com/xplaceholder/executor/commands"
 )
@@ -60,5 +59,21 @@ func (a App) execute() error {
 		a.usage.PrintCommandUsage(a.configuration.Command, command.Usage())
 		return nil
 	}
-	return &errors.NotImplementedError{}
+
+	if a.configuration.Command == "help" && len(a.configuration.SubcommandFlags) != 0 {
+		commandString := a.configuration.SubcommandFlags[0]
+		command, err = a.getCommand(commandString)
+		if err != nil {
+			return err
+		}
+		a.usage.PrintCommandUsage(commandString, command.Usage())
+		return nil
+	}
+
+	err = command.CheckFastFails(a.configuration.SubcommandFlags, a.configuration.State)
+	if err != nil {
+		return err
+	}
+
+	return command.Execute(a.configuration.SubcommandFlags, a.configuration.State)
 }
