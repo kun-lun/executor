@@ -8,8 +8,8 @@ import (
 type Digest struct {
 }
 
-func NewDigest() {
-
+func NewDigest() Digest {
+	return Digest{}
 }
 
 func (p Digest) CheckFastFails(args []string, state storage.State) error {

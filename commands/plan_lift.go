@@ -8,8 +8,8 @@ import (
 type PlanLift struct {
 }
 
-func NewPlanLift() {
-
+func NewPlanLift() PlanLift {
+	return PlanLift{}
 }
 
 func (p PlanLift) CheckFastFails(args []string, state storage.State) error {

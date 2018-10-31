@@ -5,6 +5,7 @@ import (
 
 	"github.com/xplaceholder/common/configuration"
 	"github.com/xplaceholder/common/errors"
+	"github.com/xplaceholder/common/logger"
 	"github.com/xplaceholder/executor/commands"
 )
 
@@ -17,19 +18,22 @@ type App struct {
 	commands      commands.CommandSet
 	configuration configuration.Configuration
 	usage         usage
+	logger        logger.Logger
 }
 
-func New(configuration configuration.Configuration, usage usage) App {
+func New(configuration configuration.Configuration, usage usage, logger *logger.Logger) App {
+	commandSet := commands.CommandSet{}
+	commandSet["help"] = commands.NewUsage(logger)
+	commandSet["digest"] = commands.NewDigest()
+	commandSet["plan_lift"] = commands.NewPlanLift()
+	commandSet["lift"] = commands.NewShift()
+	commandSet["plan_shift"] = commands.NewPlanShift()
+	commandSet["shift"] = commands.NewShift()
 	return App{
-		commands:      getBuildInCommands(),
+		commands:      commandSet,
 		configuration: configuration,
 		usage:         usage,
 	}
-}
-
-func getBuildInCommands() commands.CommandSet {
-	commandSet := commands.CommandSet{}
-	return commandSet
 }
 
 func (a App) Run() error {

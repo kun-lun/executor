@@ -8,8 +8,8 @@ import (
 type Shift struct {
 }
 
-func NewShift() {
-
+func NewShift() Shift {
+	return Shift{}
 }
 
 func (p Shift) CheckFastFails(args []string, state storage.State) error {
