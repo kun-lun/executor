@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/xplaceholder/common/errors"
 	"github.com/xplaceholder/common/storage"
 )
 
@@ -40,11 +39,12 @@ func NewUsage(logger logger) Usage {
 }
 
 func (u Usage) CheckFastFails(subcommandFlags []string, state storage.State) error {
-	return &errors.NotImplementedError{}
+	return nil
 }
 
 func (u Usage) Execute(subcommandFlags []string, state storage.State) error {
-	return &errors.NotImplementedError{}
+	u.Print()
+	return nil
 }
 
 func (u Usage) Print() {
