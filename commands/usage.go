@@ -1,9 +1,33 @@
 package commands
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/xplaceholder/common/errors"
 	"github.com/xplaceholder/common/storage"
 )
+
+const (
+	UsageHeader = `
+Usage:
+  bbl [GLOBAL OPTIONS] %s [OPTIONS]
+
+Global Options:
+  --help       [-h]        Prints usage. Use "kid [command] --help" for more information about a command
+  --state-dir  [-s]        Directory containing the kid state                                            env:"KID_STATE_DIRECTORY"
+  --debug      [-d]        Prints debugging output                                                       env:"KID_DEBUG"
+  --version    [-v]        Prints version
+  --no-confirm [-n]        No confirm
+%s
+`
+	CommandUsage = `
+[%s command options]
+  %s`
+)
+
+const GlobalUsage = `
+`
 
 type Usage struct {
 	logger logger
@@ -21,4 +45,15 @@ func (u Usage) CheckFastFails(subcommandFlags []string, state storage.State) err
 
 func (u Usage) Execute(subcommandFlags []string, state storage.State) error {
 	return &errors.NotImplementedError{}
+}
+
+func (u Usage) Print() {
+	content := fmt.Sprintf(UsageHeader, "COMMAND", GlobalUsage)
+	u.logger.Println(strings.TrimLeft(content, "\n"))
+}
+
+func (u Usage) PrintCommandUsage(command, message string) {
+	commandUsage := fmt.Sprintf(CommandUsage, command, message)
+	content := fmt.Sprintf(UsageHeader, command, commandUsage)
+	u.logger.Println(strings.TrimLeft(content, "\n"))
 }
