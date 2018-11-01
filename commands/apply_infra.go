@@ -8,8 +8,8 @@ import (
 type ApplyInfra struct {
 }
 
-func NewApplyInfra() {
-
+func NewApplyInfra() ApplyInfra {
+	return ApplyInfra{}
 }
 
 func (p ApplyInfra) CheckFastFails(args []string, state storage.State) error {
