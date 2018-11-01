@@ -5,17 +5,17 @@ import (
 	"github.com/xplaceholder/common/storage"
 )
 
-type Lift struct {
+type ApplyInfra struct {
 }
 
-func NewLift() {
+func NewApplyInfra() {
 
 }
 
-func (p Lift) CheckFastFails(args []string, state storage.State) error {
+func (p ApplyInfra) CheckFastFails(args []string, state storage.State) error {
 	return &errors.NotImplementedError{}
 }
 
-func (p Lift) Execute(args []string, state storage.State) error {
+func (p ApplyInfra) Execute(args []string, state storage.State) error {
 	return &errors.NotImplementedError{}
 }

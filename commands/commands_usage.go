@@ -4,20 +4,20 @@ func (Digest) Usage() string {
 	return "Help About Digest."
 }
 
-func (PlanLift) Usage() string {
-	return "Help About PlanLift."
+func (PlanInfra) Usage() string {
+	return "Help About PlanInfra."
 }
 
-func (Lift) Usage() string {
-	return "Help About Lift."
+func (ApplyInfra) Usage() string {
+	return "Help About ApplyInfra."
 }
 
-func (PlanShift) Usage() string {
-	return "Help About PlanShift."
+func (PlanDeployment) Usage() string {
+	return "Help About PlanDeployment."
 }
 
-func (Shift) Usage() string {
-	return "Help About Shift."
+func (ApplyDeployment) Usage() string {
+	return "Help About ApplyDeployment."
 }
 
 func (Promote) Usage() string {

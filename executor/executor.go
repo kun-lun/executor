@@ -24,10 +24,10 @@ func New(configuration configuration.Configuration, usage usage, logger *logger.
 	commandSet := commands.CommandSet{}
 	commandSet["help"] = commands.NewUsage(logger)
 	commandSet["digest"] = commands.NewDigest()
-	commandSet["plan_lift"] = commands.NewPlanLift()
-	commandSet["lift"] = commands.NewShift()
-	commandSet["plan_shift"] = commands.NewPlanShift()
-	commandSet["shift"] = commands.NewShift()
+	commandSet["plan_infra"] = commands.NewPlanInfra()
+	commandSet["apply_infra"] = commands.NewApplyInfra()
+	commandSet["plan_deployment"] = commands.NewPlanDeployment()
+	commandSet["apply_deployment"] = commands.NewApplyDeployment()
 	commandSet["promote"] = commands.NewPromote()
 	return App{
 		commands:      commandSet,
