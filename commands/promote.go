@@ -1,8 +1,8 @@
 package commands
 
 import (
-	"github.com/xplaceholder/common/errors"
-	"github.com/xplaceholder/common/storage"
+	"github.com/kun-lun/common/errors"
+	"github.com/kun-lun/common/storage"
 )
 
 type Promote struct {

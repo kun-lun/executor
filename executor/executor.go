@@ -3,9 +3,9 @@ package executor
 import (
 	"fmt"
 
-	"github.com/xplaceholder/common/configuration"
-	"github.com/xplaceholder/common/logger"
-	"github.com/xplaceholder/executor/commands"
+	"github.com/kun-lun/common/configuration"
+	"github.com/kun-lun/common/logger"
+	"github.com/kun-lun/executor/commands"
 )
 
 type usage interface {

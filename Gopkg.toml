@@ -24,14 +24,14 @@
 #   go-tests = true
 #   unused-packages = true
 required = [
-  "github.com/xplaceholder/common/configuration",
-  "github.com/xplaceholder/common/errors",
-  "github.com/xplaceholder/common/logger"
+  "github.com/kun-lun/common/configuration",
+  "github.com/kun-lun/common/errors",
+  "github.com/kun-lun/common/logger"
 ]
 
 [[constraint]]
   branch = "draft"
-  name = "github.com/xplaceholder/common"
+  name = "github.com/kun-lun/common"
 
 [prune]
   go-tests = true
