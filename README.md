@@ -1,4 +1,4 @@
-[![Build Status](https://xplaceholderci.gugagaga.fun/buildStatus/icon?job=xplaceholder/executor/draft)](https://xplaceholderci.gugagaga.fun/job/xplaceholder/job/executor/job/draft/)
+[![Build Status](https://xplaceholderci.gugagaga.fun/buildStatus/icon?job=kun-lun/executor/draft)](https://xplaceholderci.gugagaga.fun/job/kun-lun/job/executor/job/draft/)
 
 [![GoDoc](https://godoc.org/github.com/xplaceholder/executor?status.svg)](https://godoc.org/github.com/xplaceholder/executor)
 
