@@ -6,10 +6,15 @@ import (
 )
 
 type Promote struct {
+	stateStore storage.Store
 }
 
-func NewPromote() Promote {
-	return Promote{}
+func NewPromote(
+	stateStore storage.Store,
+) Promote {
+	return Promote{
+		stateStore: stateStore,
+	}
 }
 
 func (p Promote) CheckFastFails(args []string, state storage.State) error {

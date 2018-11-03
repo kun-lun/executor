@@ -6,10 +6,15 @@ import (
 )
 
 type PlanDeployment struct {
+	stateStore storage.Store
 }
 
-func NewPlanDeployment() PlanDeployment {
-	return PlanDeployment{}
+func NewPlanDeployment(
+	stateStore storage.Store,
+) PlanDeployment {
+	return PlanDeployment{
+		stateStore: stateStore,
+	}
 }
 
 func (p PlanDeployment) CheckFastFails(args []string, state storage.State) error {

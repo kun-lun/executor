@@ -6,10 +6,15 @@ import (
 )
 
 type ApplyDeployment struct {
+	stateStore storage.Store
 }
 
-func NewApplyDeployment() ApplyDeployment {
-	return ApplyDeployment{}
+func NewApplyDeployment(
+	stateStore storage.Store,
+) ApplyDeployment {
+	return ApplyDeployment{
+		stateStore: stateStore,
+	}
 }
 
 func (p ApplyDeployment) CheckFastFails(args []string, state storage.State) error {

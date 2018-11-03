@@ -1,10 +1,13 @@
 package executor
 
 import (
+	"crypto/rand"
 	"fmt"
 
 	"github.com/kun-lun/common/configuration"
+	"github.com/kun-lun/common/helpers"
 	"github.com/kun-lun/common/logger"
+	"github.com/kun-lun/common/storage"
 	"github.com/kun-lun/executor/commands"
 )
 
@@ -20,15 +23,23 @@ type App struct {
 	logger        logger.Logger
 }
 
-func New(configuration configuration.Configuration, usage usage, logger *logger.Logger) App {
+func New(
+	configuration configuration.Configuration,
+	usage usage,
+	logger *logger.Logger,
+	stateStore storage.Store,
+) App {
+
+	envIDGenerator := helpers.NewEnvIDManager(rand.Reader)
+
 	commandSet := commands.CommandSet{}
 	commandSet["help"] = commands.NewUsage(logger)
-	commandSet["digest"] = commands.NewDigest()
-	commandSet["plan_infra"] = commands.NewPlanInfra()
-	commandSet["apply_infra"] = commands.NewApplyInfra()
-	commandSet["plan_deployment"] = commands.NewPlanDeployment()
-	commandSet["apply_deployment"] = commands.NewApplyDeployment()
-	commandSet["promote"] = commands.NewPromote()
+	commandSet["digest"] = commands.NewDigest(stateStore, envIDGenerator)
+	commandSet["plan_infra"] = commands.NewPlanInfra(stateStore)
+	commandSet["apply_infra"] = commands.NewApplyInfra(stateStore)
+	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore)
+	commandSet["apply_deployment"] = commands.NewApplyDeployment(stateStore)
+	commandSet["promote"] = commands.NewPromote(stateStore)
 	return App{
 		commands:      commandSet,
 		configuration: configuration,

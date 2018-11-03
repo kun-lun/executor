@@ -6,10 +6,15 @@ import (
 )
 
 type PlanInfra struct {
+	stateStore storage.Store
 }
 
-func NewPlanInfra() PlanInfra {
-	return PlanInfra{}
+func NewPlanInfra(
+	stateStore storage.Store,
+) PlanInfra {
+	return PlanInfra{
+		stateStore: stateStore,
+	}
 }
 
 func (p PlanInfra) CheckFastFails(args []string, state storage.State) error {

@@ -26,6 +26,7 @@
 required = [
   "github.com/kun-lun/common/configuration",
   "github.com/kun-lun/common/errors",
+  "github.com/kun-lun/common/flags",
   "github.com/kun-lun/common/logger"
 ]
 

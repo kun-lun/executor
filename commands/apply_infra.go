@@ -6,10 +6,15 @@ import (
 )
 
 type ApplyInfra struct {
+	stateStore storage.Store
 }
 
-func NewApplyInfra() ApplyInfra {
-	return ApplyInfra{}
+func NewApplyInfra(
+	stateStore storage.Store,
+) ApplyInfra {
+	return ApplyInfra{
+		stateStore: stateStore,
+	}
 }
 
 func (p ApplyInfra) CheckFastFails(args []string, state storage.State) error {
