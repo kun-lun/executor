@@ -25,11 +25,25 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:3728648d538fa8ce19fd6e339634bdbf73a0833dc9dced6a3dc6615ccbf29b66"
+  digest = "1:c6634f48624c74efda2eb011ef0bc353633988208e47f70f9f8f4bf917cf26d0"
   name = "github.com/kun-lun/artifacts"
-  packages = ["pkg/apis"]
+  packages = [
+    "pkg/apis",
+    "pkg/apis/deployments",
+  ]
   pruneopts = "UT"
-  revision = "934e6b12790740c0d9c828425b50870886f4f0e6"
+  revision = "707a72758b66c8d606a587cdc54f356df45e96be"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:2f0228384d862f6e06a45d9307eea7870587236e03b9fa017c32e2ea7c9a2dab"
+  name = "github.com/kun-lun/ashandler"
+  packages = [
+    "generator",
+    "pkg/apis",
+  ]
+  pruneopts = "UT"
+  revision = "205b403885b256b3147cf84a4b6576d853d95e4f"
 
 [[projects]]
   branch = "draft"
@@ -46,6 +60,17 @@
   ]
   pruneopts = "UT"
   revision = "f14e6ef865944748bdf42acf2ccaf9a6188bbe01"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:97649ad8532ed37ce510a488bf3e4a745abee113f364cc2c3a557ffd4f2a7c24"
+  name = "github.com/kun-lun/deployment-producer"
+  packages = [
+    "dpbuilder",
+    "pkg/apis",
+  ]
+  pruneopts = "UT"
+  revision = "6f5785ad89e6ff0c1fdaef2c7324a6d9b3f728f3"
 
 [[projects]]
   branch = "draft"
@@ -221,6 +246,7 @@
     "github.com/kun-lun/common/helpers",
     "github.com/kun-lun/common/logger",
     "github.com/kun-lun/common/storage",
+    "github.com/kun-lun/deployment-producer/pkg/apis",
     "github.com/kun-lun/digester/pkg/apis",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
