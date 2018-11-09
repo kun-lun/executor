@@ -6,6 +6,7 @@ type State struct {
 	IAAS           string `json:"iaas"`
 	ID             string `json:"id"`
 	EnvID          string `json:"envID"`
+	Azure          Azure  `json:"azure,omitempty"`
 	TFState        string `json:"tfState"`
 	LatestTFOutput string `json:"latestTFOutput"`
 }

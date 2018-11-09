@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path"
 	"path/filepath"
 	"reflect"
 
@@ -77,6 +78,38 @@ func (s Store) GetStateDir() string {
 	return s.dir
 }
 
+func (s Store) GetVarsDir() (string, error) {
+	return s.getDir("vars", StateMode)
+}
+
+// GetArtifactsDir get artifacts folder
+func (s Store) GetArtifactsDir() (string, error) {
+	return s.getDir("artifacts", os.ModePerm)
+}
+
+// GetMainArtifactFilePath get artifacts main file path
+func (s Store) GetMainArtifactFilePath() (string, error) {
+	artifactsDir, err := s.GetArtifactsDir()
+	if err != nil {
+		return "", err
+	}
+	return path.Join(artifactsDir, "main.yml"), nil
+}
+
+// GetArtifactsPatchDir get the patches folder
+func (s Store) GetArtifactsPatchDir() (string, error) {
+	return s.getDir("artifacts/patches", os.ModePerm)
+}
+
+// GetArtifractsVarFilePath get vars file for the artifacts.
+func (s Store) GetArtifractsVarFilePath() (string, error) {
+	artifactsDir, err := s.GetVarsDir()
+	if err != nil {
+		return "", err
+	}
+	return path.Join(artifactsDir, "artifacts_vars.yml"), nil
+}
+
 // GetInfraDir get the infrastructure folder.
 func (s Store) GetInfraDir() (string, error) {
 	return s.getDir("infra", os.ModePerm)
@@ -87,11 +120,6 @@ func (s Store) GetTerraformDir() (string, error) {
 	return s.getDir("infra/terraform", os.ModePerm)
 }
 
-// GetArtifactsDir get artifacts folder
-func (s Store) GetArtifactsDir() (string, error) {
-	return s.getDir("artifacts", os.ModePerm)
-}
-
 func (s Store) GetDeploymentsDir() (string, error) {
 	return s.getDir("deployments", os.ModePerm)
 }
@@ -100,8 +128,17 @@ func (s Store) GetAnsibleDir() (string, error) {
 	return s.getDir("deployments/ansible", os.ModePerm)
 }
 
-func (s Store) GetVarsDir() (string, error) {
-	return s.getDir("vars", StateMode)
+// TODO think about merge the vars dir with the global vars dir.
+func (s Store) GetAnsibleVarsFilePath() (string, error) {
+	artifactsDir, err := s.GetVarsDir()
+	if err != nil {
+		return "", err
+	}
+	return path.Join(artifactsDir, "ansible_vars.yml"), nil
+}
+
+func (s Store) GetAnsibleInventoriesDir() (string, error) {
+	return s.getDir("deployments/ansible/inventories", os.ModePerm)
 }
 
 func (s Store) getDir(name string, perm os.FileMode) (string, error) {

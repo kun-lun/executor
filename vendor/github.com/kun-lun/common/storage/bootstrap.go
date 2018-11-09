@@ -12,13 +12,13 @@ type bootstrapLogger interface {
 
 type StateBootstrap struct {
 	bootstrapLogger bootstrapLogger
-	kidVersion      string
+	klVersion       string
 }
 
-func NewStateBootstrap(bootstrapLogger bootstrapLogger, kidVersion string) StateBootstrap {
+func NewStateBootstrap(bootstrapLogger bootstrapLogger, klVersion string) StateBootstrap {
 	return StateBootstrap{
 		bootstrapLogger: bootstrapLogger,
-		kidVersion:      kidVersion,
+		klVersion:       klVersion,
 	}
 }
 

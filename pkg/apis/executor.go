@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/kun-lun/common/configuration"
+	"github.com/kun-lun/common/fileio"
 	"github.com/kun-lun/common/helpers"
 	"github.com/kun-lun/common/logger"
 	"github.com/kun-lun/common/storage"
@@ -21,6 +22,7 @@ type Executor struct {
 	configuration configuration.Configuration
 	usage         usage
 	logger        logger.Logger
+	fs            fileio.Fs
 }
 
 func NewExecutor(
@@ -28,6 +30,7 @@ func NewExecutor(
 	usage usage,
 	logger *logger.Logger,
 	stateStore storage.Store,
+	fs fileio.Fs,
 ) Executor {
 
 	envIDGenerator := helpers.NewEnvIDManager(rand.Reader)
@@ -35,6 +38,7 @@ func NewExecutor(
 	commandSet := commands.CommandSet{}
 	commandSet["help"] = commands.NewUsage(logger)
 	commandSet["digest"] = commands.NewDigest(stateStore, envIDGenerator)
+	commandSet["interop"] = commands.NewInterop(stateStore)
 	commandSet["plan_infra"] = commands.NewPlanInfra(stateStore)
 	commandSet["apply_infra"] = commands.NewApplyInfra(stateStore)
 	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore)
@@ -44,6 +48,7 @@ func NewExecutor(
 		commands:      commandSet,
 		configuration: configuration,
 		usage:         usage,
+		fs:            fs,
 	}
 }
 

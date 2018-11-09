@@ -4,6 +4,10 @@ func (Digest) Usage() string {
 	return "Help About Digest."
 }
 
+func (Interop) Usage() string {
+	return "Help About Interop."
+}
+
 func (PlanInfra) Usage() string {
 	return "Help About PlanInfra."
 }

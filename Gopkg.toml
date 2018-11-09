@@ -30,9 +30,17 @@ required = [
   "github.com/kun-lun/common/logger"
 ]
 
+[[override]]
+  name = "gopkg.in/fsnotify.v1"
+  source = "https://github.com/fsnotify/fsnotify.git"
+
 [[constraint]]
   branch = "draft"
   name = "github.com/kun-lun/common"
+
+[[override]]
+  branch = "master"
+  name = "github.com/cppforlife/go-patch"
 
 [prune]
   go-tests = true
