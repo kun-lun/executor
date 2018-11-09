@@ -33,7 +33,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:6894181f3873866d82710a696a6ce703daadb92793d82f621c83c2ccc4b9844a"
+  digest = "1:b729a211c7180eaebac98022472255f761ceeb1e0895ac8caa0d341a42837ec9"
   name = "github.com/kun-lun/common"
   packages = [
     "configuration",
@@ -45,7 +45,27 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "9781e16a9d2d03667b4fca19142daa7e40273b4c"
+  revision = "74397567f5d9a3a29be19fd1bd7b450f1d082286"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:fc640218b681ee4409738b678262c60079ecb10641cdfe112415bd189e9ee0e6"
+  name = "github.com/kun-lun/digester"
+  packages = [
+    "pkg/apis",
+    "pkg/artifactgen",
+    "pkg/common",
+    "pkg/detector",
+    "pkg/detector/frameworks/laravel5",
+    "pkg/detector/frameworks/null",
+    "pkg/detector/packagemanagers/composer",
+    "pkg/detector/packagemanagers/null",
+    "pkg/detector/util",
+    "pkg/questionnaire",
+    "pkg/vmgroupcalc",
+  ]
+  pruneopts = "UT"
+  revision = "972b5e579ee56e72a1c8f83e48762923d152a52c"
 
 [[projects]]
   branch = "master"
@@ -201,8 +221,10 @@
     "github.com/kun-lun/common/helpers",
     "github.com/kun-lun/common/logger",
     "github.com/kun-lun/common/storage",
+    "github.com/kun-lun/digester/pkg/apis",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
+    "github.com/spf13/afero",
     "gopkg.in/yaml.v2",
   ]
   solver-name = "gps-cdcl"

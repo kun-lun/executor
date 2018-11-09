@@ -7,6 +7,7 @@ import (
 	"github.com/kun-lun/common/flags"
 	"github.com/kun-lun/common/helpers"
 	"github.com/kun-lun/common/storage"
+	digester "github.com/kun-lun/digester/pkg/apis"
 )
 
 type Digest struct {
@@ -74,7 +75,11 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 	if err != nil {
 		return storage.State{}, fmt.Errorf("Save state: %s", err)
 	}
-	// TODO(zhongyi) save the manifest into this folder:
-	_, err = p.stateStore.GetArtifactsDir()
+
+	questionaireFilePath, err := p.stateStore.GetQuestionaireFilePath()
+	if err := digester.Run(questionaireFilePath); err != nil {
+		return storage.State{}, fmt.Errorf("Call digester: %s", err)
+	}
+
 	return state, nil
 }
