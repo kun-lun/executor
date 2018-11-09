@@ -13,9 +13,9 @@ Usage:
   bbl [GLOBAL OPTIONS] %s [OPTIONS]
 
 Global Options:
-  --help       [-h]        Prints usage. Use "kid [command] --help" for more information about a command
-  --state-dir  [-s]        Directory containing the kid state                                            env:"KID_STATE_DIRECTORY"
-  --debug      [-d]        Prints debugging output                                                       env:"KID_DEBUG"
+  --help       [-h]        Prints usage. Use "kl [command] --help" for more information about a command
+  --state-dir  [-s]        Directory containing the kl state                                            env:"KL_STATE_DIRECTORY"
+  --debug      [-d]        Prints debugging output                                                       env:"KL_DEBUG"
   --version    [-v]        Prints version
   --no-confirm [-n]        No confirm
 %s
