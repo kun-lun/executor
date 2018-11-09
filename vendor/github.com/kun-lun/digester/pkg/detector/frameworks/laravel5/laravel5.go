@@ -70,9 +70,9 @@ func (f *framework) DetectConfig(path string) []common.Database {
                 password := util.KeyValueParser1(block, "password", true)
 
                 res = append(res, common.Database{
-                    Type: driver,
+                    Driver: driver,
                     OriginHost: envMap[host],
-                    OriginDatabase: envMap[database],
+                    OriginName: envMap[database],
                     OriginUsername: envMap[username],
                     OriginPassword: envMap[password],
                     /*

@@ -29,7 +29,7 @@
   name = "github.com/kun-lun/artifacts"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "ef7e1636c0db4a8a12695201dd6480ca69c87090"
+  revision = "934e6b12790740c0d9c828425b50870886f4f0e6"
 
 [[projects]]
   branch = "draft"
@@ -45,11 +45,11 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "74397567f5d9a3a29be19fd1bd7b450f1d082286"
+  revision = "f14e6ef865944748bdf42acf2ccaf9a6188bbe01"
 
 [[projects]]
   branch = "draft"
-  digest = "1:fc640218b681ee4409738b678262c60079ecb10641cdfe112415bd189e9ee0e6"
+  digest = "1:76e8e0cf031f091f1f01e5adb1b67b08915bd07e4a2220cdc91a49576400bab7"
   name = "github.com/kun-lun/digester"
   packages = [
     "pkg/apis",
@@ -65,7 +65,7 @@
     "pkg/vmgroupcalc",
   ]
   pruneopts = "UT"
-  revision = "972b5e579ee56e72a1c8f83e48762923d152a52c"
+  revision = "a615691f5eeddd8497acb2c7097c2cbc1a0d099a"
 
 [[projects]]
   branch = "master"

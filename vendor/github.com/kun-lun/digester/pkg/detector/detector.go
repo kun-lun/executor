@@ -29,7 +29,11 @@ func New(projectPath string) (*Detector, error) {
     }
     return &Detector{
         projectPath: projectPath,
-        blueprint: artifactgen.Blueprint{},
+        blueprint: artifactgen.Blueprint{
+            NonIaaS: artifactgen.NonIaaS{
+                ProjectPath: projectPath,
+            },
+        },
     }, nil
 }
 
