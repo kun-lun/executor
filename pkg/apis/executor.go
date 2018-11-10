@@ -41,7 +41,7 @@ func NewExecutor(
 	commandSet["interop"] = commands.NewInterop(stateStore)
 	commandSet["plan_infra"] = commands.NewPlanInfra(stateStore)
 	commandSet["apply_infra"] = commands.NewApplyInfra(stateStore)
-	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore)
+	commandSet["plan_deployment"] = commands.NewPlanDeployment(stateStore, fs, logger)
 	commandSet["apply_deployment"] = commands.NewApplyDeployment(stateStore)
 	commandSet["promote"] = commands.NewPromote(stateStore)
 	return Executor{

@@ -1,6 +1,8 @@
 package patching
 
 import (
+	"path"
+
 	artifacts "github.com/kun-lun/artifacts/pkg/apis"
 	"github.com/kun-lun/common/fileio"
 	"github.com/kun-lun/common/storage"
@@ -37,7 +39,7 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 		fileArg := OpsFileArg{
 			fileReader: p.fs,
 		}
-		fileArg.UnmarshalFlag(fileInfo.Name())
+		fileArg.UnmarshalFlag(path.Join(artifactsPatchDir, fileInfo.Name()))
 		opsFileArgs = append(opsFileArgs, fileArg)
 	}
 

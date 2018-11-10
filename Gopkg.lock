@@ -36,18 +36,18 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:2f0228384d862f6e06a45d9307eea7870587236e03b9fa017c32e2ea7c9a2dab"
+  digest = "1:3d549cbc5941adbcd992a7bb9e03648bd5b5ad24a01a11993a4b0a7b1a518704"
   name = "github.com/kun-lun/ashandler"
   packages = [
     "generator",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "205b403885b256b3147cf84a4b6576d853d95e4f"
+  revision = "27214cd2e2187f6cd9adfb55d08993dd82bed0fe"
 
 [[projects]]
   branch = "draft"
-  digest = "1:b729a211c7180eaebac98022472255f761ceeb1e0895ac8caa0d341a42837ec9"
+  digest = "1:8a722de0b2bb20cae3ba126a8d1e93513d14fbc37c9ce96727857abfea544803"
   name = "github.com/kun-lun/common"
   packages = [
     "configuration",
@@ -59,18 +59,18 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "f14e6ef865944748bdf42acf2ccaf9a6188bbe01"
+  revision = "a5d5043fcc45fb30fa71a45c086fb5118a1b0cfe"
 
 [[projects]]
   branch = "draft"
-  digest = "1:97649ad8532ed37ce510a488bf3e4a745abee113f364cc2c3a557ffd4f2a7c24"
+  digest = "1:ecaf35fba21b1659aa4d8aaf4a09eb1c7122d195fbc605e43c91c5c87c78cf78"
   name = "github.com/kun-lun/deployment-producer"
   packages = [
     "dpbuilder",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "6f5785ad89e6ff0c1fdaef2c7324a6d9b3f728f3"
+  revision = "95d049ddf2edb86c57177019c3b46e2095d38888"
 
 [[projects]]
   branch = "draft"
@@ -91,6 +91,14 @@
   ]
   pruneopts = "UT"
   revision = "a615691f5eeddd8497acb2c7097c2cbc1a0d099a"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:939c4763a230f80ff31bad029f33a726a9f930f094cb8db257ff7abb50bb5d63"
+  name = "github.com/kun-lun/test-infra"
+  packages = ["pkg/apis"]
+  pruneopts = "UT"
+  revision = "650ae5ba6c7f945de3124fef55692825cb165948"
 
 [[projects]]
   branch = "master"
@@ -248,6 +256,7 @@
     "github.com/kun-lun/common/storage",
     "github.com/kun-lun/deployment-producer/pkg/apis",
     "github.com/kun-lun/digester/pkg/apis",
+    "github.com/kun-lun/test-infra/pkg/apis",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
     "github.com/spf13/afero",
