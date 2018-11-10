@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	builtinmanifests "github.com/kun-lun/artifacts/pkg/apis/builtinmanifests"
+	"github.com/kun-lun/common/fileio"
 	"github.com/kun-lun/common/flags"
 	"github.com/kun-lun/common/helpers"
 	"github.com/kun-lun/common/storage"
@@ -13,6 +15,8 @@ import (
 type Digest struct {
 	stateStore   storage.Store
 	envIDManager helpers.EnvIDManager
+
+	fs fileio.Fs
 }
 
 type DiegestConfig struct {
@@ -22,10 +26,12 @@ type DiegestConfig struct {
 func NewDigest(
 	stateStore storage.Store,
 	envIDManager helpers.EnvIDManager,
+	fs fileio.Fs,
 ) Digest {
 	return Digest{
 		stateStore:   stateStore,
 		envIDManager: envIDManager,
+		fs:           fs,
 	}
 }
 
@@ -61,6 +67,9 @@ func (p Digest) Execute(args []string, state storage.State) error {
 		return err
 	}
 	_, err = p.initialize(config, state)
+
+	// choose one manifest from the artifacts galary.
+
 	return err
 }
 
@@ -81,5 +90,28 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 		return storage.State{}, fmt.Errorf("Call digester: %s", err)
 	}
 
-	return state, nil
+	err = p.pickUpManifest()
+
+	return state, err
+}
+
+// TODO(zhongyi) This is a stub, should pick the manifest up based on the q&a file.
+func (p Digest) pickUpManifest() error {
+	var (
+		isSmallPHP bool
+	)
+	isSmallPHP = true
+	artifactFilePath, err := p.stateStore.GetMainArtifactFilePath()
+	if err != nil {
+		return err
+	}
+	if isSmallPHP {
+		content, err := builtinmanifests.FSByte(false, "/manifests/small_php.yml")
+		if err != nil {
+			return err
+		}
+		err = p.fs.WriteFile(artifactFilePath, content, 0644)
+		return err
+	}
+	return fmt.Errorf("we only support the small php")
 }

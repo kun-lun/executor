@@ -37,7 +37,7 @@ func NewExecutor(
 
 	commandSet := commands.CommandSet{}
 	commandSet["help"] = commands.NewUsage(logger)
-	commandSet["digest"] = commands.NewDigest(stateStore, envIDGenerator)
+	commandSet["digest"] = commands.NewDigest(stateStore, envIDGenerator, fs)
 	commandSet["interop"] = commands.NewInterop(stateStore)
 	commandSet["plan_infra"] = commands.NewPlanInfra(stateStore)
 	commandSet["apply_infra"] = commands.NewApplyInfra(stateStore)

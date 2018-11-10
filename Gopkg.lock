@@ -25,14 +25,15 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:c6634f48624c74efda2eb011ef0bc353633988208e47f70f9f8f4bf917cf26d0"
+  digest = "1:240c7b97ee82a0b38535ae8eaf1cc5c1f3e0ba142c16724ef8dea0fa28a886dd"
   name = "github.com/kun-lun/artifacts"
   packages = [
     "pkg/apis",
+    "pkg/apis/builtinmanifests",
     "pkg/apis/deployments",
   ]
   pruneopts = "UT"
-  revision = "707a72758b66c8d606a587cdc54f356df45e96be"
+  revision = "5c2f9bde6927bd18ea842152a543c612b491b1f4"
 
 [[projects]]
   branch = "draft"
@@ -255,6 +256,7 @@
   input-imports = [
     "github.com/cppforlife/go-patch/patch",
     "github.com/kun-lun/artifacts/pkg/apis",
+    "github.com/kun-lun/artifacts/pkg/apis/builtinmanifests",
     "github.com/kun-lun/common/configuration",
     "github.com/kun-lun/common/errors",
     "github.com/kun-lun/common/fileio",
