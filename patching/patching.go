@@ -25,6 +25,7 @@ func NewPatching(
 
 func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 	mainArtifactFilePath, err := p.stateStore.GetMainArtifactFilePath()
+
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +47,28 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 	opsFlags := OpsFlags{
 		OpsFiles: opsFileArgs,
 	}
-	content, err = template.Evaluate(opsFlags.AsOp())
+
+	varsStore := VarsFSStore{}
+
+	varsStoreFilePath, err := p.stateStore.GetMainArtifactVarsStoreFilePath()
+	if err != nil {
+		return nil, err
+	}
+
+	err = varsStore.UnmarshalFlag(varsStoreFilePath)
+
+	if err != nil {
+		return nil, err
+	}
+
+	varsFlags := VarFlags{
+		VarsFSStore: varsStore,
+	}
+	evalOpts := EvaluateOpts{
+		ExpectAllKeys:     false,
+		ExpectAllVarsUsed: false,
+	}
+	content, err = template.Evaluate(varsFlags.AsVariables(), opsFlags.AsOp(), evalOpts)
 	manifest, err := artifacts.NewManifestFromYAML(content)
 	return manifest, nil
 }

@@ -56,7 +56,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:cb712b78b8696dc1e3cffeb565595e94453dc91aca6b85d90c6591c713a28356"
+  digest = "1:e8504cb5af33fec92a02dba155e6b8d9d671eae371e59028be2a885cb8130b93"
   name = "github.com/kun-lun/common"
   packages = [
     "configuration",
@@ -68,7 +68,7 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "c7becf49e2c2f7fc21488276629fc93ea4f50108"
+  revision = "62dc1104b1e2561653db812951ed8a12613287a2"
 
 [[projects]]
   branch = "draft"
@@ -166,6 +166,14 @@
   version = "v1.4.2"
 
 [[projects]]
+  digest = "1:40e195917a951a8bf867cd05de2a46aaf1806c50cf92eebf4c16f78cd196f747"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
+
+[[projects]]
   digest = "1:6a4a11ba764a56d2758899ec6f3848d24698d48442ebce85ee7a3f63284526cd"
   name = "github.com/spf13/afero"
   packages = [
@@ -175,6 +183,22 @@
   pruneopts = "UT"
   revision = "d40851caa0d747393da1ffb28f7f9d8b4eeffebd"
   version = "v1.1.2"
+
+[[projects]]
+  branch = "master"
+  digest = "1:082c538aa8ca5e086d5d20ec16417e7fca237de2c4146485e02aa09989d0ff38"
+  name = "golang.org/x/crypto"
+  packages = [
+    "curve25519",
+    "ed25519",
+    "ed25519/internal/edwards25519",
+    "internal/chacha20",
+    "internal/subtle",
+    "poly1305",
+    "ssh",
+  ]
+  pruneopts = "UT"
+  revision = "e4dc69e5b2fd71dcaf8bd5d054eb936deb78d1fa"
 
 [[projects]]
   branch = "master"
@@ -269,7 +293,9 @@
     "github.com/kun-lun/test-infra/pkg/apis",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
+    "github.com/pkg/errors",
     "github.com/spf13/afero",
+    "golang.org/x/crypto/ssh",
     "gopkg.in/yaml.v2",
   ]
   solver-name = "gps-cdcl"

@@ -1,4 +1,4 @@
-package helpers
+package patching
 
 import (
 	"crypto/rand"
@@ -25,15 +25,15 @@ type RSAKey struct {
 	PublicKey  string `json:"public_key" yaml:"public_key"`
 }
 
-func (g RSAKeyGenerator) Generate(parameters interface{}) (RSAKey, error) {
+func (g RSAKeyGenerator) Generate(parameters interface{}) (interface{}, error) {
 	priv, pub, err := g.generateRSAKeyPair()
 	if err != nil {
-		return RSAKey{}, fmt.Errorf("Generating RSA key pair: %s", err)
+		return nil, fmt.Errorf("Generating RSA key pair: %s", err)
 	}
 
 	pubKeyStr, err := g.publicKeyToPEM(pub)
 	if err != nil {
-		return RSAKey{}, fmt.Errorf("Generating RSA public key pair: %s", err)
+		return nil, fmt.Errorf("Generating RSA public key pair: %s", err)
 	}
 
 	return RSAKey{
