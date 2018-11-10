@@ -71,14 +71,14 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:ecaf35fba21b1659aa4d8aaf4a09eb1c7122d195fbc605e43c91c5c87c78cf78"
+  digest = "1:e17404efae680af41d8339eaccbf233e82d17434be6034d152f9d3f9ba57a64a"
   name = "github.com/kun-lun/deployment-producer"
   packages = [
     "dpbuilder",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "d15779dfc839e2593c54b92c087148add2170d14"
+  revision = "f9d71ab9a3c318190e21e39c3ae6e43d08a3513d"
 
 [[projects]]
   branch = "draft"

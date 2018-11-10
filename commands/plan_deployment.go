@@ -36,7 +36,7 @@ func (p PlanDeployment) Execute(args []string, state storage.State) error {
 	if err != nil {
 		return err
 	}
-	deploymentProducer := deploymentProducer.NewDeploymentProducer(p.stateStore, p.logger)
+	deploymentProducer := deploymentProducer.NewDeploymentProducer(p.stateStore, p.logger, p.fs)
 	err = deploymentProducer.Produce(*manifest)
 	return err
 }
