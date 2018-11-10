@@ -36,18 +36,26 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:3d549cbc5941adbcd992a7bb9e03648bd5b5ad24a01a11993a4b0a7b1a518704"
+  digest = "1:4cc33b161089cfc7470cd52d77af519bb90ecc116f476108132375b7d37942d9"
   name = "github.com/kun-lun/ashandler"
   packages = [
     "generator",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "27214cd2e2187f6cd9adfb55d08993dd82bed0fe"
+  revision = "5b2da8ee45d6f93f6156851bf36ee7b5ae2b177d"
 
 [[projects]]
   branch = "draft"
-  digest = "1:8a722de0b2bb20cae3ba126a8d1e93513d14fbc37c9ce96727857abfea544803"
+  digest = "1:d1233f9dae58ac1aed31aa8f23acafb924e8015df930ce0318fdeafb3a68e6dd"
+  name = "github.com/kun-lun/built-in-roles"
+  packages = ["pkg/apis"]
+  pruneopts = "UT"
+  revision = "f3e843d3f75bc279ae0c69240be67fa075236d7f"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:cb712b78b8696dc1e3cffeb565595e94453dc91aca6b85d90c6591c713a28356"
   name = "github.com/kun-lun/common"
   packages = [
     "configuration",
@@ -59,7 +67,7 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "a5d5043fcc45fb30fa71a45c086fb5118a1b0cfe"
+  revision = "c7becf49e2c2f7fc21488276629fc93ea4f50108"
 
 [[projects]]
   branch = "draft"
@@ -70,7 +78,7 @@
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "95d049ddf2edb86c57177019c3b46e2095d38888"
+  revision = "d15779dfc839e2593c54b92c087148add2170d14"
 
 [[projects]]
   branch = "draft"
