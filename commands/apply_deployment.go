@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"os"
 	"os/exec"
 
 	"github.com/kun-lun/common/storage"
@@ -32,6 +33,9 @@ func (p ApplyDeployment) Execute(args []string, state storage.State) error {
 	}
 
 	command := exec.Command(deploymentScriptFilePath)
+	// TODO handle the stdout and err better, involve the logger part in.
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
 	// command.Dir = workingDirectory
 
 	// command.Env = os.Environ()
