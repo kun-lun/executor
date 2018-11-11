@@ -48,7 +48,9 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 		OpsFiles: opsFileArgs,
 	}
 
-	varsStore := VarsFSStore{}
+	varsStore := VarsFSStore{
+		fs: p.fs,
+	}
 
 	varsStoreFilePath, err := p.stateStore.GetMainArtifactVarsStoreFilePath()
 	if err != nil {
