@@ -71,6 +71,9 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 		ExpectAllVarsUsed: false,
 	}
 	content, err = template.Evaluate(varsFlags.AsVariables(), opsFlags.AsOp(), evalOpts)
+	if err != nil {
+		return nil, err
+	}
 	manifest, err := artifacts.NewManifestFromYAML(content)
-	return manifest, nil
+	return manifest, err
 }
