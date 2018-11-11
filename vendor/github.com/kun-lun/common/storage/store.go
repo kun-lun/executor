@@ -107,7 +107,7 @@ func (s Store) GetMainArtifactFilePath() (string, error) {
 
 // GetMainArtifactVarsStoreFilePath get the vars store, to store the vars generated.
 func (s Store) GetMainArtifactVarsStoreFilePath() (string, error) {
-	artifactsDir, err := s.GetArtifactsDir()
+	artifactsDir, err := s.GetVarsDir()
 	if err != nil {
 		return "", err
 	}
