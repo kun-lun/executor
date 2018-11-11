@@ -3,6 +3,7 @@ package patching
 import (
 	"fmt"
 	"path/filepath"
+	"strings"
 
 	"github.com/kun-lun/common/fileio"
 	"github.com/pkg/errors"
@@ -87,7 +88,13 @@ func (s VarsFSStore) load() (StaticVariables, error) {
 
 	// file exists?
 	_, err := s.fs.Stat(s.path)
-	if err != nil { // TODO fix this, should check whether error is not exists.
+
+	if err != nil {
+		if !strings.Contains(err.Error(), "no such file") {
+			return StaticVariables{}, err
+		}
+	}
+	if err == nil {
 		bytes, err := s.fs.ReadFile(s.path)
 		if err != nil {
 			return vars, err
