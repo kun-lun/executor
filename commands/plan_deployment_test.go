@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/spf13/afero"
 
-	"github.com/kun-lun/executor/patching"
+	patching "github.com/kun-lun/patching/pkg/apis"
 
 	testInfra "github.com/kun-lun/test-infra/pkg/apis"
 )

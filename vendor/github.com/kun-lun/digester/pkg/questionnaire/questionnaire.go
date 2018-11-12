@@ -1,7 +1,6 @@
 package questionnaire
 
 import (
-    "github.com/kun-lun/digester/pkg/artifactgen"
     "github.com/kun-lun/digester/pkg/common"
     "github.com/kun-lun/digester/pkg/detector"
     "github.com/kun-lun/digester/pkg/vmgroupcalc"
@@ -18,7 +17,7 @@ var (
     scanner = bufio.NewScanner(os.Stdin)
 )
 
-func Run() artifactgen.Blueprint {
+func Run() common.Blueprint {
     fmt.Println("Project path?")
     scanner.Scan()
     path := scanner.Text()
@@ -78,7 +77,7 @@ func Run() artifactgen.Blueprint {
     bp := d.ExposeKnownInfo()
 
     // Ask for the empty fields
-    nisp := &bp.NonIaaS
+    nisp := &bp.NonInfra
     if nisp.ProgrammingLanguage == "" {
         fmt.Println("What's the programming language? Allowed values: {php}")
         scanner.Scan()
@@ -142,10 +141,9 @@ func Run() artifactgen.Blueprint {
     if err != nil {
         log.Fatal(err)
     }
-    bp.IaaS.VMGroup = vmgroupcalc.Calc(vmgroupcalc.Requirment{
+    bp.Infra = vmgroupcalc.Calc(vmgroupcalc.Requirment{
         ConcurrentUserNumber: concurrentUserNumber,
     })
-
 
     return bp
 }

@@ -1,4 +1,4 @@
-package patching
+package apis
 
 import (
 	"github.com/cppforlife/go-patch/patch"

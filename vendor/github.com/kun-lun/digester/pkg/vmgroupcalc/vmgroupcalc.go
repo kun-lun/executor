@@ -8,17 +8,19 @@ type Requirment struct {
     ConcurrentUserNumber int
 }
 
-func Calc(r Requirment) common.VMGroup {
-    res := common.VMGroup{
-        Count: 1,
-        Size: "Standard_DS1_v2",
+func Calc(r Requirment) common.Infra {
+    res := common.Infra{
+        Size: common.SizeSmall,
     }
     x := r.ConcurrentUserNumber
     if x >= 1000 {
-        res.Count += 1
+        res.Size = common.SizeMedium
     }
     if x >= 2000 {
-        res.Count += 2
+        res.Size = common.SizeLarge
+    }
+    if x >= 4000 {
+        res.Size = common.SizeMaximum
     }
 
     return res

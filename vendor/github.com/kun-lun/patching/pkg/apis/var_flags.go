@@ -1,4 +1,4 @@
-package patching
+package apis
 
 type VarFlags struct {
 	VarsFSStore VarsFSStore `long:"vars-store"           value-name:"PATH"      description:"Load/save variables from/to a YAML file"`

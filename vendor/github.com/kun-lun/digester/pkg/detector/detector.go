@@ -6,7 +6,6 @@ import (
     "os"
     "strings"
     "github.com/kun-lun/digester/pkg/common"
-    "github.com/kun-lun/digester/pkg/artifactgen"
     nullFramework "github.com/kun-lun/digester/pkg/detector/frameworks/null"
     nullPackageManager "github.com/kun-lun/digester/pkg/detector/packagemanagers/null"
 )
@@ -15,7 +14,7 @@ type Detector struct {
     projectPath string
     packageManager common.PackageManager
     framework common.Framework
-    blueprint artifactgen.Blueprint
+    blueprint common.Blueprint
 }
 
 func New(projectPath string) (*Detector, error) {
@@ -29,8 +28,8 @@ func New(projectPath string) (*Detector, error) {
     }
     return &Detector{
         projectPath: projectPath,
-        blueprint: artifactgen.Blueprint{
-            NonIaaS: artifactgen.NonIaaS{
+        blueprint: common.Blueprint{
+            NonInfra: common.NonInfra{
                 ProjectPath: projectPath,
             },
         },
@@ -70,14 +69,14 @@ func (d *Detector) ConfirmFramework(fwn string) {
     } else {
         d.framework = nullFramework.New()
     }
-    d.blueprint.NonIaaS.ProgrammingLanguage = d.framework.GetProgrammingLanguage()
+    d.blueprint.NonInfra.ProgrammingLanguage = d.framework.GetProgrammingLanguage()
 }
 
 // Only one database in an array for now
 func (d *Detector) DetectConfig() {
-    d.blueprint.NonIaaS.Databases = d.framework.DetectConfig(d.projectPath)
+    d.blueprint.NonInfra.Databases = d.framework.DetectConfig(d.projectPath)
 }
 
-func (d *Detector) ExposeKnownInfo() artifactgen.Blueprint {
+func (d *Detector) ExposeKnownInfo() common.Blueprint {
     return d.blueprint
 }

@@ -25,7 +25,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:e184ff1e21f3efe5cc05c3e5d56625d2bcbf4581e4708617406868b237e70c9d"
+  digest = "1:fbcfbb1f0f80736079c81821cf5313357de551ba6d71ab5321a66bbac92f645c"
   name = "github.com/kun-lun/artifacts"
   packages = [
     "pkg/apis",
@@ -33,18 +33,18 @@
     "pkg/apis/deployments",
   ]
   pruneopts = "UT"
-  revision = "868dee36768e55cc757137c5a0effd905be46225"
+  revision = "69d9b2f24e664149115c90caf9da8a2f1d689739"
 
 [[projects]]
   branch = "draft"
-  digest = "1:20b4f34cca4ca436087cf8cd6975b182959df2cb1912a95f6b8cbbb65da3ab7f"
+  digest = "1:d4662cabc2e2e0a31d23710a56c17b5f8aa11db68f4c58b34389f31a5879a40d"
   name = "github.com/kun-lun/ashandler"
   packages = [
     "generator",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "6349f828f8e862c3f7e01ddc18fff269836fae99"
+  revision = "eaabf09a6c7b33a9bdfccf717621848821f18bcb"
 
 [[projects]]
   branch = "draft"
@@ -72,22 +72,21 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:eea0b773d1ec749eb4bdc06c118eff9c18de570bb682b85a1a4ad5260c450903"
+  digest = "1:43151b32b3159e93aea304bc29aad66fe2c4e3c5c50b10df74d74b684bb06bfb"
   name = "github.com/kun-lun/deployment-producer"
   packages = [
     "dpbuilder",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "143942913e35d5b171244bf4a3cf653009892301"
+  revision = "d9eeb43f2e505f817811d0f93ff4af2f1c427aea"
 
 [[projects]]
   branch = "draft"
-  digest = "1:76e8e0cf031f091f1f01e5adb1b67b08915bd07e4a2220cdc91a49576400bab7"
+  digest = "1:5fce99e46a16928910c8604db0ece2733985c1c75ca115fc45d2cf7798363b65"
   name = "github.com/kun-lun/digester"
   packages = [
     "pkg/apis",
-    "pkg/artifactgen",
     "pkg/common",
     "pkg/detector",
     "pkg/detector/frameworks/laravel5",
@@ -99,7 +98,15 @@
     "pkg/vmgroupcalc",
   ]
   pruneopts = "UT"
-  revision = "a615691f5eeddd8497acb2c7097c2cbc1a0d099a"
+  revision = "74d2ae6a1908e6eb6e80c58568a8afc4f64ba924"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:d5e31a4f86f4c5227b5eb656088ec1281b7f86a039cdafeb856f86480b071ab8"
+  name = "github.com/kun-lun/patching"
+  packages = ["pkg/apis"]
+  pruneopts = "UT"
+  revision = "1a2f34606f7f03f54424122497b79c7deec8ebe4"
 
 [[projects]]
   branch = "draft"
@@ -278,8 +285,6 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/cppforlife/go-patch/patch",
-    "github.com/kun-lun/artifacts/pkg/apis",
     "github.com/kun-lun/artifacts/pkg/apis/builtinmanifests",
     "github.com/kun-lun/common/configuration",
     "github.com/kun-lun/common/errors",
@@ -290,13 +295,11 @@
     "github.com/kun-lun/common/storage",
     "github.com/kun-lun/deployment-producer/pkg/apis",
     "github.com/kun-lun/digester/pkg/apis",
+    "github.com/kun-lun/patching/pkg/apis",
     "github.com/kun-lun/test-infra/pkg/apis",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
-    "github.com/pkg/errors",
     "github.com/spf13/afero",
-    "golang.org/x/crypto/ssh",
-    "gopkg.in/yaml.v2",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

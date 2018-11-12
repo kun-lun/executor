@@ -128,13 +128,13 @@ func (a ASGenerator) generateHostsFile(hostGroups []deployments.HostGroup) []byt
 type AnsibleHost struct {
 	Host          string `yaml:"ansible_host"`
 	SSHUser       string `yaml:"ansible_ssh_user"`
-	SSHCommonArgs string `yaml:"ansible_ssh_common_args"`
+	SSHCommonArgs string `yaml:"ansible_ssh_common_args,omitempty"`
 }
 
 type role struct {
 	Role       string `yaml:"role"`
-	Become     string `yaml:"become"`
-	BecomeUser string `yaml:"become_user"`
+	Become     string `yaml:"become,omitempty"`
+	BecomeUser string `yaml:"become_user,omitempty"`
 }
 type depItem struct {
 	Hosts    string   `yaml:"hosts"`
@@ -177,6 +177,23 @@ func (a ASGenerator) generatePlaybookFile(deployments []deployments.Deployment) 
 			Hosts:    dep.HostGroupName,
 			VarsFile: []string{varsFile},
 		}
+
+		roles := []role{}
+		for _, r := range dep.Roles {
+			if r.BecomeUser != "" {
+				roles = append(roles, role{
+					Role:       r.Name,
+					Become:     "true",
+					BecomeUser: r.BecomeUser,
+				})
+			} else {
+				roles = append(roles, role{
+					Role: r.Name,
+				})
+			}
+		}
+
+		depItem.Roles = roles
 		depItems = append(depItems, depItem)
 	}
 	content, _ := yaml.Marshal(depItems)
@@ -213,12 +230,12 @@ func (a ASGenerator) prepareBuiltInRoles(deployments []deployments.Deployment) e
 					return err
 				}
 				targetPath := path.Join(ansibleDir, "./"+filePath)
-				a.logger.Printf("base dir is %s\n", path.Dir(targetPath))
+				// a.logger.Printf("base dir is %s\n", path.Dir(targetPath))
 				err = a.fs.MkdirAll(path.Dir(targetPath), 0744)
 				if err != nil {
 					return err
 				}
-				a.logger.Printf("writing to %s\n", targetPath)
+				// a.logger.Printf("writing to %s\n", targetPath)
 				err = a.fs.WriteFile(targetPath, content, 0644)
 				if err != nil {
 					return err

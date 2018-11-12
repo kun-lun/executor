@@ -4,7 +4,7 @@ import (
 	"github.com/kun-lun/common/fileio"
 	"github.com/kun-lun/common/storage"
 	deploymentProducer "github.com/kun-lun/deployment-producer/pkg/apis"
-	"github.com/kun-lun/executor/patching"
+	patching "github.com/kun-lun/patching/pkg/apis"
 )
 
 type PlanDeployment struct {

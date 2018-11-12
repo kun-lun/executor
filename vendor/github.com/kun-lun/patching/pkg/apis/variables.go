@@ -1,4 +1,4 @@
-package patching
+package apis
 
 type Variables interface {
 	Get(VariableDefinition) (interface{}, bool, error)
