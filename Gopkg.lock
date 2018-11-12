@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:0ef770954bca104ee99b3b6b7f9b240605ac03517d9f98cbc1893daa03f3c038"
+  name = "github.com/coreos/go-semver"
+  packages = ["semver"]
+  pruneopts = "UT"
+  revision = "8ab6407b697782a06568d4b7f1db25550ec2e4c6"
+  version = "v0.2.0"
+
+[[projects]]
   branch = "master"
   digest = "1:71570cb9af58f4981cd3b6ac9902b37e978e1f3c34f35a04a3a4837ea542500f"
   name = "github.com/cppforlife/go-patch"
@@ -102,6 +110,17 @@
 
 [[projects]]
   branch = "draft"
+  digest = "1:5ed999c72adcdaab0842488dfc204508c7c76a68fa8708a81299602b95e023d7"
+  name = "github.com/kun-lun/infra-producer"
+  packages = [
+    "handler",
+    "pkg/apis",
+  ]
+  pruneopts = "UT"
+  revision = "4e9efb72024418b2d86e42169f52ff5e88d089db"
+
+[[projects]]
+  branch = "draft"
   digest = "1:daaafd2fe895b83b7124fa0a584fe88bba34f1221d6a2a96b7021b88d129666d"
   name = "github.com/kun-lun/patching"
   packages = ["pkg/apis"]
@@ -115,6 +134,18 @@
   packages = ["pkg/apis"]
   pruneopts = "UT"
   revision = "650ae5ba6c7f945de3124fef55692825cb165948"
+
+[[projects]]
+  branch = "draft"
+  digest = "1:28c69e89a70c9d9bc526cbd28bfa8be2d39c2685ee24e2a1c42fb442d9f6ba8f"
+  name = "github.com/kun-lun/tfhandler"
+  packages = [
+    "terraform",
+    "terraform/binary_dist",
+    "terraform/templates",
+  ]
+  pruneopts = "UT"
+  revision = "e6a950840b8aca7b56404371a5da5c97113118a1"
 
 [[projects]]
   branch = "master"
@@ -295,6 +326,8 @@
     "github.com/kun-lun/common/storage",
     "github.com/kun-lun/deployment-producer/pkg/apis",
     "github.com/kun-lun/digester/pkg/apis",
+    "github.com/kun-lun/infra-producer/handler",
+    "github.com/kun-lun/infra-producer/pkg/apis",
     "github.com/kun-lun/patching/pkg/apis",
     "github.com/kun-lun/test-infra/pkg/apis",
     "github.com/onsi/ginkgo",
