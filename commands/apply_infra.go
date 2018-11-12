@@ -1,8 +1,9 @@
 package commands
 
 import (
-	"github.com/kun-lun/common/errors"
 	"github.com/kun-lun/common/storage"
+	"github.com/kun-lun/infra-producer/handler"
+	infra "github.com/kun-lun/infra-producer/pkg/apis"
 )
 
 type ApplyInfra struct {
@@ -18,9 +19,12 @@ func NewApplyInfra(
 }
 
 func (p ApplyInfra) CheckFastFails(args []string, state storage.State) error {
-	return &errors.NotImplementedError{}
+	return nil
 }
 
 func (p ApplyInfra) Execute(args []string, state storage.State) error {
-	return &errors.NotImplementedError{}
+	handlerType := handler.TerraformHandlerType // should get from args
+	debug := true
+	infraProducer, _ := infra.NewInfraProducer(p.stateStore, handlerType, debug)
+	return infraProducer.Apply(state)
 }
