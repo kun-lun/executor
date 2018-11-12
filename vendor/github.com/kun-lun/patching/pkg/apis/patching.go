@@ -67,7 +67,7 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 		VarsFSStore: varsStore,
 	}
 	evalOpts := EvaluateOpts{
-		ExpectAllKeys:     false,
+		ExpectAllKeys:     true,
 		ExpectAllVarsUsed: false,
 	}
 	content, err = template.Evaluate(varsFlags.AsVariables(), opsFlags.AsOp(), evalOpts)

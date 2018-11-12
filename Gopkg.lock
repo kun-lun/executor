@@ -37,14 +37,14 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:d4662cabc2e2e0a31d23710a56c17b5f8aa11db68f4c58b34389f31a5879a40d"
+  digest = "1:467cdc5a13944a84f2fee5c42cae67fe14884a82036a082bdd3d406417084740"
   name = "github.com/kun-lun/ashandler"
   packages = [
     "generator",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "eaabf09a6c7b33a9bdfccf717621848821f18bcb"
+  revision = "48c0aba27b42d1bbdfb6212f9c513de187bf9d04"
 
 [[projects]]
   branch = "draft"
@@ -79,7 +79,7 @@
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "d9eeb43f2e505f817811d0f93ff4af2f1c427aea"
+  revision = "14ac27b43129ca02eef3a0361a8ffdd0cab4d9d2"
 
 [[projects]]
   branch = "draft"
@@ -102,11 +102,11 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:d5e31a4f86f4c5227b5eb656088ec1281b7f86a039cdafeb856f86480b071ab8"
+  digest = "1:daaafd2fe895b83b7124fa0a584fe88bba34f1221d6a2a96b7021b88d129666d"
   name = "github.com/kun-lun/patching"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "1a2f34606f7f03f54424122497b79c7deec8ebe4"
+  revision = "4655840a709c53b6dd44f0997561dc70098e88ae"
 
 [[projects]]
   branch = "draft"

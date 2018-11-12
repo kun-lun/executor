@@ -17,6 +17,12 @@ type VarsFSStore struct {
 	path string
 }
 
+func NewVarsFSStore(fs fileio.Fs) VarsFSStore {
+	return VarsFSStore{
+		fs: fs,
+	}
+}
+
 var _ Variables = VarsFSStore{}
 
 func (s VarsFSStore) IsSet() bool { return len(s.path) > 0 }
