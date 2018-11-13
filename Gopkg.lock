@@ -52,7 +52,7 @@
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "48c0aba27b42d1bbdfb6212f9c513de187bf9d04"
+  revision = "7ebb981c706d2b8c955de0f178b5dcf5e9b3335b"
 
 [[projects]]
   branch = "draft"
@@ -106,7 +106,7 @@
     "pkg/vmgroupcalc",
   ]
   pruneopts = "UT"
-  revision = "3f1bfbecf1c27bb96eab63f264457414b1ad5b88"
+  revision = "58b36a46e21971279b86a175be0fbec90e44e873"
 
 [[projects]]
   branch = "draft"
@@ -125,7 +125,7 @@
   name = "github.com/kun-lun/patching"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "ee37d0b37d6d972f503b90f9e0f540e828439eb7"
+  revision = "6b56a079f0ba701a52ba2f2df28b19daccb29833"
 
 [[projects]]
   branch = "draft"
