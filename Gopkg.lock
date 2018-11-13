@@ -33,7 +33,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:fbcfbb1f0f80736079c81821cf5313357de551ba6d71ab5321a66bbac92f645c"
+  digest = "1:cb5328c7afd39fd55a1b10b75afb1d39a59fe1314402d677220c9c7a82c6e8e3"
   name = "github.com/kun-lun/artifacts"
   packages = [
     "pkg/apis",
@@ -41,7 +41,7 @@
     "pkg/apis/deployments",
   ]
   pruneopts = "UT"
-  revision = "69d9b2f24e664149115c90caf9da8a2f1d689739"
+  revision = "3f2f5e51b588f943c56f7e22f16c19c1d5645f1f"
 
 [[projects]]
   branch = "draft"
@@ -56,15 +56,15 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:d1233f9dae58ac1aed31aa8f23acafb924e8015df930ce0318fdeafb3a68e6dd"
+  digest = "1:93397615fb9b12701adbf369b5e662a2170e7da2798e12614e7420da89f5aae1"
   name = "github.com/kun-lun/built-in-roles"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "f3e843d3f75bc279ae0c69240be67fa075236d7f"
+  revision = "cc06c54232979f2d34264bbacbf21553f040b88a"
 
 [[projects]]
   branch = "draft"
-  digest = "1:599f50a4c0a3e68febceb20f9b53ff29c04670f4f36019efd60d79bcc3587a59"
+  digest = "1:a7a3c7243288c717a33254cb999fbfc16d36780465b14e24eea128ac2ca76440"
   name = "github.com/kun-lun/common"
   packages = [
     "configuration",
@@ -76,7 +76,7 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "f7f052e28e81f919cca7eb1c3903f896bcc1d613"
+  revision = "e83ee98715c421a36b2f545c16c56bb6511d5fab"
 
 [[projects]]
   branch = "draft"
@@ -121,11 +121,11 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:daaafd2fe895b83b7124fa0a584fe88bba34f1221d6a2a96b7021b88d129666d"
+  digest = "1:7cb13041d1335e4567c88e520474d55bece8471a97c0c794e144ff27ce0f96e3"
   name = "github.com/kun-lun/patching"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "4655840a709c53b6dd44f0997561dc70098e88ae"
+  revision = "ee37d0b37d6d972f503b90f9e0f540e828439eb7"
 
 [[projects]]
   branch = "draft"
@@ -236,7 +236,7 @@
     "ssh",
   ]
   pruneopts = "UT"
-  revision = "e4dc69e5b2fd71dcaf8bd5d054eb936deb78d1fa"
+  revision = "3d3f9f413869b949e48070b5bc593aa22cc2b8f2"
 
 [[projects]]
   branch = "master"

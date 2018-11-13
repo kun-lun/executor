@@ -85,8 +85,8 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 		return storage.State{}, fmt.Errorf("Save state: %s", err)
 	}
 
-	questionaireFilePath, err := p.stateStore.GetQuestionaireFilePath()
-	if err := digester.Run(questionaireFilePath); err != nil {
+	artifactsVarsFilePath, err := p.stateStore.GetArtifractsVarFilePath()
+	if err := digester.Run(artifactsVarsFilePath); err != nil {
 		return storage.State{}, fmt.Errorf("Call digester: %s", err)
 	}
 

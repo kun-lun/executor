@@ -82,15 +82,6 @@ func (s Store) GetVarsDir() (string, error) {
 	return s.getDir("vars", StateMode)
 }
 
-// GetQuestionaireFilePath get questionaire file path
-func (s Store) GetQuestionaireFilePath() (string, error) {
-	varsDir, err := s.GetVarsDir()
-	if err != nil {
-		return "", err
-	}
-	return path.Join(varsDir, "questionaire.yml"), nil
-}
-
 // GetArtifactsDir get artifacts folder
 func (s Store) GetArtifactsDir() (string, error) {
 	return s.getDir("artifacts", os.ModePerm)
@@ -103,6 +94,15 @@ func (s Store) GetMainArtifactFilePath() (string, error) {
 		return "", err
 	}
 	return path.Join(artifactsDir, "main.yml"), nil
+}
+
+// GetMainArtifactVarsFilePath get the variables file path
+func (s Store) GetMainArtifactVarsFilePath() (string, error) {
+	artifactsDir, err := s.GetVarsDir()
+	if err != nil {
+		return "", err
+	}
+	return path.Join(artifactsDir, "main-vars-file.yml"), nil
 }
 
 // GetMainArtifactVarsStoreFilePath get the vars store, to store the vars generated.
@@ -125,7 +125,7 @@ func (s Store) GetArtifractsVarFilePath() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return path.Join(artifactsDir, "artifacts_vars.yml"), nil
+	return path.Join(artifactsDir, "artifacts-vars.yml"), nil
 }
 
 // GetInfraDir get the infrastructure folder.

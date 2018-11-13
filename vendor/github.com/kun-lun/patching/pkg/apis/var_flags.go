@@ -1,13 +1,14 @@
 package apis
 
 type VarFlags struct {
-	VarsFSStore VarsFSStore `long:"vars-store"           value-name:"PATH"      description:"Load/save variables from/to a YAML file"`
+	VarsFiles   []VarsFileArg `long:"vars-file"  short:"l" value-name:"PATH"      description:"Load variables from a YAML file"`
+	VarsFSStore VarsFSStore   `long:"vars-store"           value-name:"PATH"      description:"Load/save variables from/to a YAML file"`
 }
 
 func (f VarFlags) AsVariables() Variables {
 	var firstToUse []Variables
 
-	// staticVars := boshtpl.StaticVariables{}
+	staticVars := StaticVariables{}
 
 	// for i, _ := range f.VarsEnvs {
 	// 	for k, v := range f.VarsEnvs[i].Vars {
@@ -15,11 +16,11 @@ func (f VarFlags) AsVariables() Variables {
 	// 	}
 	// }
 
-	// for i, _ := range f.VarsFiles {
-	// 	for k, v := range f.VarsFiles[i].Vars {
-	// 		staticVars[k] = v
-	// 	}
-	// }
+	for i, _ := range f.VarsFiles {
+		for k, v := range f.VarsFiles[i].Vars {
+			staticVars[k] = v
+		}
+	}
 
 	// for i, _ := range f.VarFiles {
 	// 	for k, v := range f.VarFiles[i].Vars {
@@ -31,7 +32,7 @@ func (f VarFlags) AsVariables() Variables {
 	// 	staticVars[kv.Name] = kv.Value
 	// }
 
-	// firstToUse = append(firstToUse, staticVars)
+	firstToUse = append(firstToUse, staticVars)
 
 	store := &f.VarsFSStore
 

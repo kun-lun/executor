@@ -48,6 +48,16 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 		OpsFiles: opsFileArgs,
 	}
 
+	// build the artifact vars file
+	artifactVarsFilePath, err := p.stateStore.GetMainArtifactVarsFilePath()
+	varsFileArg := VarsFileArg{
+		fs: p.fs,
+	}
+	err = varsFileArg.UnmarshalFlag(artifactVarsFilePath)
+	if err != nil {
+		return nil, err
+	}
+
 	varsStore := VarsFSStore{
 		fs: p.fs,
 	}
@@ -64,6 +74,7 @@ func (p Patching) ProvisionManifest() (*artifacts.Manifest, error) {
 	}
 
 	varsFlags := VarFlags{
+		VarsFiles:   []VarsFileArg{varsFileArg},
 		VarsFSStore: varsStore,
 	}
 	evalOpts := EvaluateOpts{
