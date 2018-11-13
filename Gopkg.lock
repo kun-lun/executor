@@ -110,14 +110,14 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:56e2c7a423fad2e3ae696f1fd12deea049a3c41d3a7abcb10778e32ba45f39b1"
+  digest = "1:754b55ad0b5be292b9c6fcbc8d294cfe4acd6a99e7593eb6d48c7e4e8e649d52"
   name = "github.com/kun-lun/infra-producer"
   packages = [
     "handler",
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "d17d99a222364823a9b109c6173555d897ecdee1"
+  revision = "6aca19a7434d3cf44d4790b62d9461f81963b9bc"
 
 [[projects]]
   branch = "draft"
