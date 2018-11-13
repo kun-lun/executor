@@ -106,7 +106,7 @@ func combine(is digesterCommon.InfraSize, pl digesterCommon.ProgrammingLanguage)
 
 // TODO(zhongyi) This is a stub, should pick the manifest up based on the q&a file.
 func (p Digest) pickUpManifest() error {
-	artifactsVarsFilePath, err := p.stateStore.GetArtifractsVarFilePath()
+	artifactsVarsFilePath, err := p.stateStore.GetMainArtifactVarsFilePath()
 	if err != nil {
 		return err
 	}
