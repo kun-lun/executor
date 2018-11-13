@@ -119,15 +119,6 @@ func (s Store) GetArtifactsPatchDir() (string, error) {
 	return s.getDir("artifacts/patches", os.ModePerm)
 }
 
-// GetArtifractsVarFilePath get vars file for the artifacts.
-func (s Store) GetArtifractsVarFilePath() (string, error) {
-	artifactsDir, err := s.GetVarsDir()
-	if err != nil {
-		return "", err
-	}
-	return path.Join(artifactsDir, "artifacts-vars.yml"), nil
-}
-
 // GetInfraDir get the infrastructure folder.
 func (s Store) GetInfraDir() (string, error) {
 	return s.getDir("infra", os.ModePerm)

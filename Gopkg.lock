@@ -33,7 +33,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:cb5328c7afd39fd55a1b10b75afb1d39a59fe1314402d677220c9c7a82c6e8e3"
+  digest = "1:350772c9c1e9e4585cac394dcf55e3f2cf18aaf9b25b7fefa271dff96f50a054"
   name = "github.com/kun-lun/artifacts"
   packages = [
     "pkg/apis",
@@ -41,7 +41,7 @@
     "pkg/apis/deployments",
   ]
   pruneopts = "UT"
-  revision = "3f2f5e51b588f943c56f7e22f16c19c1d5645f1f"
+  revision = "58f656608dad4fde33d45153e339aa6a23a70fe4"
 
 [[projects]]
   branch = "draft"
@@ -56,15 +56,15 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:93397615fb9b12701adbf369b5e662a2170e7da2798e12614e7420da89f5aae1"
+  digest = "1:3b123175a03dc3a954cead7e62bda3db250d787b6c3eefbdf18042b4255d0d72"
   name = "github.com/kun-lun/built-in-roles"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "cc06c54232979f2d34264bbacbf21553f040b88a"
+  revision = "a804029985d0f76872066bd99778aecd24fcd648"
 
 [[projects]]
   branch = "draft"
-  digest = "1:a7a3c7243288c717a33254cb999fbfc16d36780465b14e24eea128ac2ca76440"
+  digest = "1:01380f4607f3de828b83a1423dd962f77bbbc94e124c36224418c483b1246b74"
   name = "github.com/kun-lun/common"
   packages = [
     "configuration",
@@ -76,7 +76,7 @@
     "storage",
   ]
   pruneopts = "UT"
-  revision = "e83ee98715c421a36b2f545c16c56bb6511d5fab"
+  revision = "11580d80d8ecaebf40fc4aee67d8f882ef7ed48b"
 
 [[projects]]
   branch = "draft"

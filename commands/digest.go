@@ -86,7 +86,7 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 		return storage.State{}, fmt.Errorf("Save state: %s", err)
 	}
 
-	artifactsVarsFilePath, err := p.stateStore.GetArtifractsVarFilePath()
+	artifactsVarsFilePath, err := p.stateStore.GetMainArtifactVarsFilePath()
 	if err != nil {
 		return storage.State{}, err
 	}
@@ -123,16 +123,16 @@ func (p Digest) pickUpManifest() error {
 
 	var manifestFilePath string
 	switch combine(bp.Infra.Size, bp.NonInfra.ProgrammingLanguage) {
-		case combine(digesterCommon.SizeSmall, digesterCommon.PHP):
-			manifestFilePath = "/manifests/small_php.yml"
-		case combine(digesterCommon.SizeMedium, digesterCommon.PHP):
-			manifestFilePath = "/manifests/medium_php.yml"
-		case combine(digesterCommon.SizeLarge, digesterCommon.PHP):
-			manifestFilePath = "/manifests/large_php.yml"
-		case combine(digesterCommon.SizeMaximum, digesterCommon.PHP):
-			manifestFilePath = "/manifests/maximum_php.yml"
-		default:
-			return fmt.Errorf("we only support php")
+	case combine(digesterCommon.SizeSmall, digesterCommon.PHP):
+		manifestFilePath = "/manifests/small_php.yml"
+	case combine(digesterCommon.SizeMedium, digesterCommon.PHP):
+		manifestFilePath = "/manifests/medium_php.yml"
+	case combine(digesterCommon.SizeLarge, digesterCommon.PHP):
+		manifestFilePath = "/manifests/large_php.yml"
+	case combine(digesterCommon.SizeMaximum, digesterCommon.PHP):
+		manifestFilePath = "/manifests/maximum_php.yml"
+	default:
+		return fmt.Errorf("we only support php")
 
 	}
 
