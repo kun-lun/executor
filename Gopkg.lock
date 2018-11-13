@@ -91,7 +91,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:5fce99e46a16928910c8604db0ece2733985c1c75ca115fc45d2cf7798363b65"
+  digest = "1:bfc94c47f34550df15ed002a9152fb14563f03bc8997180e2760564e998afb68"
   name = "github.com/kun-lun/digester"
   packages = [
     "pkg/apis",
@@ -106,7 +106,7 @@
     "pkg/vmgroupcalc",
   ]
   pruneopts = "UT"
-  revision = "74d2ae6a1908e6eb6e80c58568a8afc4f64ba924"
+  revision = "3f1bfbecf1c27bb96eab63f264457414b1ad5b88"
 
 [[projects]]
   branch = "draft"
@@ -326,6 +326,7 @@
     "github.com/kun-lun/common/storage",
     "github.com/kun-lun/deployment-producer/pkg/apis",
     "github.com/kun-lun/digester/pkg/apis",
+    "github.com/kun-lun/digester/pkg/common",
     "github.com/kun-lun/infra-producer/handler",
     "github.com/kun-lun/infra-producer/pkg/apis",
     "github.com/kun-lun/patching/pkg/apis",

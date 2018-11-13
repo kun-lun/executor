@@ -13,10 +13,10 @@ type Database struct {
 	OriginUsername string `name:"Origin Username" question:"What's the username of the origin database?"`
 	OriginPassword string `name:"Origin Password" question:"What's the password of the origin database?"`
 	/*
-	EnvVarHost     string `name:"The Environment Variable for Host" question:"What's the environment variable for the host?"`
-	EnvVarDatabase string `name:"The Environment Variable for Database" question:"What's the environment variable for the database name?"`
-	EnvVarUsername string `name:"The Environment Variable for Username" question:"What's the environment variable for the username?"`
-	EnvVarPassword string `name:"The Environment Variable for Password" question:"What's the environment variable for the password?"`
+		EnvVarHost     string `name:"The Environment Variable for Host" question:"What's the environment variable for the host?"`
+		EnvVarDatabase string `name:"The Environment Variable for Database" question:"What's the environment variable for the database name?"`
+		EnvVarUsername string `name:"The Environment Variable for Username" question:"What's the environment variable for the username?"`
+		EnvVarPassword string `name:"The Environment Variable for Password" question:"What's the environment variable for the password?"`
 	*/
 }
 

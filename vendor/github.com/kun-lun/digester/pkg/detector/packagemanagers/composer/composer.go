@@ -1,62 +1,62 @@
 package composer
 
 import (
-    "github.com/kun-lun/digester/pkg/common"
-    "github.com/kun-lun/digester/pkg/detector/frameworks/laravel5"
-    "io/ioutil"
-    "encoding/json"
-    "log"
-    "os"
-    "strings"
+	"encoding/json"
+	"github.com/kun-lun/digester/pkg/common"
+	"github.com/kun-lun/digester/pkg/detector/frameworks/laravel5"
+	"io/ioutil"
+	"log"
+	"os"
+	"strings"
 )
 
-type packageManager struct {}
+type packageManager struct{}
 
 type composerConfig struct {
-	Name      string                 `json:"name"`
-	Require   map[string]interface{} `json:"require"`
+	Name    string                 `json:"name"`
+	Require map[string]interface{} `json:"require"`
 }
 
 func New() common.PackageManager {
-    return &packageManager{}
+	return &packageManager{}
 }
 
 func (p *packageManager) GetName() common.PackageManagerName {
-    return "Composer"
+	return "Composer"
 }
 
 func (p *packageManager) Identify(path string) bool {
-    files, err := ioutil.ReadDir(path)
-    if err != nil {
-        log.Fatal(err)
-    }
+	files, err := ioutil.ReadDir(path)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    for _, f := range files {
-        if f.Name() == "composer.json" {
-            return true
-        }
-    }
-    return false
+	for _, f := range files {
+		if f.Name() == "composer.json" {
+			return true
+		}
+	}
+	return false
 }
 
 func (p *packageManager) DetectFramework(path string) []common.FrameworkName {
-    composerFile, err := os.Open(path + "composer.json")
-    if err != nil {
-    	log.Fatal(err)
-    }
-    defer composerFile.Close()
-    composerByte, _ := ioutil.ReadAll(composerFile)
-    var composerConfig composerConfig
-    json.Unmarshal(composerByte, &composerConfig)
+	composerFile, err := os.Open(path + "composer.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer composerFile.Close()
+	composerByte, _ := ioutil.ReadAll(composerFile)
+	var composerConfig composerConfig
+	json.Unmarshal(composerByte, &composerConfig)
 
-    possibleFrameworks := []common.FrameworkName{}
+	possibleFrameworks := []common.FrameworkName{}
 
-    version, ok := composerConfig.Require["laravel/framework"].(string)
-    if ok {
-        if strings.HasPrefix(version, "5") {
-            possibleFrameworks = append(possibleFrameworks, laravel5.New().GetName())
-        }
-    }
+	version, ok := composerConfig.Require["laravel/framework"].(string)
+	if ok {
+		if strings.HasPrefix(version, "5") {
+			possibleFrameworks = append(possibleFrameworks, laravel5.New().GetName())
+		}
+	}
 
-    return possibleFrameworks
+	return possibleFrameworks
 }

@@ -1,23 +1,23 @@
 package null
 
 import (
-    "github.com/kun-lun/digester/pkg/common"
+	"github.com/kun-lun/digester/pkg/common"
 )
 
-type packageManager struct {}
+type packageManager struct{}
 
 func New() common.PackageManager {
-    return &packageManager{}
+	return &packageManager{}
 }
 
 func (p *packageManager) GetName() common.PackageManagerName {
-    return ""
+	return ""
 }
 
 func (p *packageManager) Identify(path string) bool {
-    return true
+	return true
 }
 
 func (p *packageManager) DetectFramework(path string) []common.FrameworkName {
-    return []common.FrameworkName{}
+	return []common.FrameworkName{}
 }

@@ -9,7 +9,8 @@ import (
 	"github.com/kun-lun/common/flags"
 	"github.com/kun-lun/common/helpers"
 	"github.com/kun-lun/common/storage"
-	digester "github.com/kun-lun/digester/pkg/apis"
+	digesterApis "github.com/kun-lun/digester/pkg/apis"
+	digesterCommon "github.com/kun-lun/digester/pkg/common"
 )
 
 type Digest struct {
@@ -86,7 +87,11 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 	}
 
 	artifactsVarsFilePath, err := p.stateStore.GetArtifractsVarFilePath()
-	if err := digester.Run(artifactsVarsFilePath); err != nil {
+	if err != nil {
+		return storage.State{}, err
+	}
+
+	if err := digesterApis.Run(state, artifactsVarsFilePath); err != nil {
 		return storage.State{}, fmt.Errorf("Call digester: %s", err)
 	}
 
@@ -95,23 +100,46 @@ func (p Digest) initialize(config DiegestConfig, state storage.State) (storage.S
 	return state, err
 }
 
+func combine(is digesterCommon.InfraSize, pl digesterCommon.ProgrammingLanguage) string {
+	return string(is) + "|" + string(pl)
+}
+
 // TODO(zhongyi) This is a stub, should pick the manifest up based on the q&a file.
 func (p Digest) pickUpManifest() error {
-	var (
-		isSmallPHP bool
-	)
-	isSmallPHP = true
+	artifactsVarsFilePath, err := p.stateStore.GetArtifractsVarFilePath()
+	if err != nil {
+		return err
+	}
+
 	artifactFilePath, err := p.stateStore.GetMainArtifactFilePath()
 	if err != nil {
 		return err
 	}
-	if isSmallPHP {
-		content, err := builtinmanifests.FSByte(false, "/manifests/small_php.yml")
-		if err != nil {
-			return err
-		}
-		err = p.fs.WriteFile(artifactFilePath, content, 0644)
+
+	bp, err := digesterApis.ImportBlueprintYaml(artifactsVarsFilePath)
+	if err != nil {
 		return err
 	}
-	return fmt.Errorf("we only support the small php")
+
+	var manifestFilePath string
+	switch combine(bp.Infra.Size, bp.NonInfra.ProgrammingLanguage) {
+		case combine(digesterCommon.SizeSmall, digesterCommon.PHP):
+			manifestFilePath = "/manifests/small_php.yml"
+		case combine(digesterCommon.SizeMedium, digesterCommon.PHP):
+			manifestFilePath = "/manifests/medium_php.yml"
+		case combine(digesterCommon.SizeLarge, digesterCommon.PHP):
+			manifestFilePath = "/manifests/large_php.yml"
+		case combine(digesterCommon.SizeMaximum, digesterCommon.PHP):
+			manifestFilePath = "/manifests/maximum_php.yml"
+		default:
+			return fmt.Errorf("we only support php")
+
+	}
+
+	content, err := builtinmanifests.FSByte(false, manifestFilePath)
+	if err != nil {
+		return err
+	}
+	err = p.fs.WriteFile(artifactFilePath, content, 0644)
+	return err
 }
