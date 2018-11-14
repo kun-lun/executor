@@ -245,23 +245,25 @@ OAAAAA==
 	"/built.in/kunlun.datadisk/tasks/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.datadisk/tasks/main.yml",
-		size:    275,
-		modtime: 1542084996,
+		size:    557,
+		modtime: 1542156194,
 		compressed: `
-H4sIAAAAAAAC/3SPMQ+CMBCF9/6KF5x1cursaljcSbVHaICj4Q4jIfx305JoNLq+1+97vT3Y9WRxdi2h
-Dh1BZlHqMTC0IXinDj5Ia5DrrbUGAGrROZIFPfSYA093i2JZMlUlqopOG6xrYcxraZhYMcUPdZ/CzZqI
-b0uu3670TMbbvy3scClPJerAHkFxnfMp3cSH3/8WdUoWcSQh1mcAAAD//5LxgggTAQAA
+H4sIAAAAAAAC/5yRP2sDMQzFd3+KRzqndGgoeO4a0qH74Zx1nMmdbSy56RHy3YvtNNDQP9BREno/vac1
+vJlJY2sOhMFNBF5YaEbwkJFgjRhYxweFOm5TrQBgYFkiadC7PNaGpTeN1elUt7qy1UUjI87nlQL21IeC
+kpTpWnaZKWmkEESpz2NeEkWTCHPIXhCD83LBN3ARbSBXTm3yQDj6olX6xrPbT039Op+DJY2Hp82mlixG
+SMO6RL2EtCjg6GTsiiY30PrGTT3of5621UuOXxKtereefsEBnPqfIsYdXnfPOwzOWzjBfqkfnLK///5d
+lwBiIqaa8F9uPgIAAP//6f7Imy0CAAA=
 `,
 	},
 
 	"/built.in/kunlun.deploysourcecode/defaults/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.deploysourcecode/defaults/main.yml",
-		size:    45,
-		modtime: 1542091137,
+		size:    129,
+		modtime: 1542159826,
 		compressed: `
-H4sIAAAAAAAC/yooys9KTS6JT88siS9KLci34oKJFBclxxfl55dYKejn5pXopySWJAICAAD//5TfsWUt
-AAAA
+H4sIAAAAAAAC/yooys9KTS6JT88siS9KLci3UlBS4oIJFuXnl1gp6OfmleinJJYk6mfnQGXgKoqLkqGq
+lKqrFZD1KdTW6hfnlxYlpybnp6QizIRYVJZZnJmfB7IMEAAA//+ZXifYgQAAAA==
 `,
 	},
 
@@ -312,23 +314,43 @@ PEafR9rIcZtem6quAqEwMSUKcvca7+XO8VVvCalPoL6AafLOmqTwo0RsrX1sXIJr2yEmqRUuHCnM5uo5
 	"/built.in/kunlun.php/defaults/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.php/defaults/main.yml",
-		size:    27,
-		modtime: 1542083786,
+		size:    293,
+		modtime: 1542161383,
 		compressed: `
-H4sIAAAAAAAC/yooys9KTS6JLy5Kji/Kzy+xUtDPzSvRT0ksSQQEAAD//0hQnfwbAAAA
+H4sIAAAAAAAC/3zMwW7DIAyA4TtPYbF72XHiZRABJ2QBGxl3mVT13aemzbTTbmB/v7vwJyYNwqweXCN1
+OWp0W31tzCmGpJeytxv87eB+d4OvkjBxRvtbVF7+KSov1uQ4ysRRcqBlpe/QWdTDx7vZahirYqDY0IPd
+6uXxtebJEtO8nscdanLH3PTSA1KcKobHc+7Ng8oV4Q12hFSYB4IWhIO7uTeYWYB4vxztjtNA+UIJOWJj
+8k/4EwAA//9CFY1HJQEAAA==
 `,
 	},
 
 	"/built.in/kunlun.php/tasks/main.yml": {
 		name:    "main.yml",
 		local:   "built.in/kunlun.php/tasks/main.yml",
-		size:    444,
-		modtime: 1542090862,
+		size:    996,
+		modtime: 1542163543,
 		compressed: `
-H4sIAAAAAAAC/6zOMW5DIQwG4J1T/EqXdqAH4AY9xROlFtACdm0Yoih3r6I0b87wRsu/P//ee+dRu7DO
-TblRcAAwYqeATKStjpzX+V2KOOCTEt82Uxft47aMNECZ53NWrvMwK3EXNtLDQCni+9l+2zOie4GugVkI
-exH/j34Mm7E1SEw/MZPh9RF5c4AVai3sV6j3tAOiZruXS+WrasDpcoEof1Oam2nabp9xvZ7+AgAA//8J
-N8M2vAEAAA==
+H4sIAAAAAAAC/6yTv27bMBDGdz7Fh2RpBylFkbSA3qBz0ZmgqQvFhCLZ4wmpYfjdC0oyCw8FPHjT/fvu
++x3ErutUBz/nxKI5BRoUAEQz04DofPzjo+3XDwUcyKZaEF6ohXopxAM4Jfm/lCPi4KNzy7HPU76blvNy
+Ny2b5pwK8T1Bu/lYfodbFNUjeImQidCMdLvoj1jEhIBs7LtxVPDp0vJZAWWiEIY2Bb91K8CwK5s5O42e
+BzycTsic3siKLmx13Yzz+UG1VT9JlozRM1lJ7Kko4NVfGLORaVPxQvM6WdPpI9KubmLxh7CRtfojHKcl
+bx2jKdMhGR71mmxNcxppwJfvLy9rWMQIDc3JUQEfXiZdF+9Q3RVPSO4fz20HLytsPfn6h8Om+Opd347x
+K49GrosKEJpzqOY2n2z3l9K/fV0zIxXZUNe03gYv3p5q2I9PpxPegy5eSNdlOJ/7WrntoPutvj0/30D6
+NwAA//8+8iTo5AMAAA==
+`,
+	},
+
+	"/built.in/kunlun.php/templates/nginx.j2": {
+		name:    "nginx.j2",
+		local:   "built.in/kunlun.php/templates/nginx.j2",
+		size:    525,
+		modtime: 1542166910,
+		compressed: `
+H4sIAAAAAAAC/5SQwU4yMRSF9zzFXcwCQtIZ/s0fZUUMxEkUibJTaWqnzNTM9Da3xZCM47ObFgQCceHZ
+tfm+k546RR+KoO0B1Np5ZaBtoRCuekNBBTelNltukTx03bgHIKRUzvEaywBawnclfThyQgxQepBZlNnO
+YDWWwVdESH/Ro7CzwxtRCq/RwBc8r9LXF2Yr208/k0FcELIWzstSc2dr7bkVvuLarBFg1WfDyA/6KRsO
+kvGZoE2htnCSeBGEc9IK505BGP37zzKWsdH1VZZlP7g2st4UCi5y7CHRuMt2Eg0ALCbLW57PZw97KzkC
++02/mU83j/liyWf53XQ+uZ9CUqDcNMr4+MmHHidJW8+NaFRo6nrddwAAAP//WNlIfg0CAAA=
 `,
 	},
 
@@ -4441,6 +4463,12 @@ H4sIAAAAAAAC/9LV1eUCBAAA//+9znaDBAAAAA==
 		isDir: true,
 	},
 
+	"/built.in/kunlun.php/templates": {
+		name:  "templates",
+		local: `built.in/kunlun.php/templates`,
+		isDir: true,
+	},
+
 	"/roles.galaxy": {
 		name:  "roles.galaxy",
 		local: `roles.galaxy`,
@@ -5130,6 +5158,7 @@ var _escDirs = map[string][]os.FileInfo{
 	"built.in/kunlun.php": {
 		_escData["/built.in/kunlun.php/defaults"],
 		_escData["/built.in/kunlun.php/tasks"],
+		_escData["/built.in/kunlun.php/templates"],
 	},
 
 	"built.in/kunlun.php/defaults": {
@@ -5138,6 +5167,10 @@ var _escDirs = map[string][]os.FileInfo{
 
 	"built.in/kunlun.php/tasks": {
 		_escData["/built.in/kunlun.php/tasks/main.yml"],
+	},
+
+	"built.in/kunlun.php/templates": {
+		_escData["/built.in/kunlun.php/templates/nginx.j2"],
 	},
 
 	"roles.galaxy": {

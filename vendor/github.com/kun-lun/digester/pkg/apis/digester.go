@@ -7,7 +7,7 @@ import (
 )
 
 func Run(state storage.State, filePath string) error {
-	bp := questionnaire.Run(state)
+	bp := questionnaire.Run(state, filePath)
 	return bp.ExposeYaml(filePath)
 }
 

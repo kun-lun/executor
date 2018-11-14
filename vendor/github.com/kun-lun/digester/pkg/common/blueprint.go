@@ -17,9 +17,10 @@ type Infra struct {
 }
 
 type Misc struct {
-	ResourceGroupName string `question:"What's the Azure resource group name for this Kunlun deployment?" default:"kl-test"`
-	Location          string `question:"What's the Azure location for this Kunlun deployment?" default:"eastus"`
-	AdminName         string `question:"What's the admin name for the jumpbox?" default:"kluser"`
+	ResourceGroupName    string `question:"What's the Azure resource group name for this Kunlun deployment?" default:"kl-test"`
+	Location             string `question:"What's the Azure location for this Kunlun deployment?" default:"eastus"`
+	AdminName            string `question:"What's the admin name for the jumpbox?" default:"kluser"`
+    ConcurrentUserNumber int    `question:"What's your expected number of concurrent users?" default:"1000"`
 }
 
 type Blueprint struct {
@@ -33,7 +34,7 @@ type blueprintForYaml struct {
 	ProgrammingLanguage    string `yaml:"programming_language,omitempty"`
 	DatabaseDriver         string `yaml:"database_driver,omitempty"`
 	DatabaseVersion        string `yaml:"database_version,omitempty"`
-	DatabaseStorage        string `yaml:"database_storage,omitempty"`
+	DatabaseStorage        int    `yaml:"database_storage,omitempty"`
 	DatabaseOriginHost     string `yaml:"database_origin_host,omitempty"`
 	DatabaseOriginName     string `yaml:"database_origin_name,omitempty"`
 	DatabaseOriginUsername string `yaml:"database_origin_username,omitempty"`
@@ -42,6 +43,7 @@ type blueprintForYaml struct {
 	ResourceGroupName      string `yaml:"resource_group_name,omitempty"`
 	Location               string `yaml:"location,omitempty"`
 	AdminName              string `yaml:"admin_name,omitempty"`
+    ConcurrentUserNumber   int    `yaml:"concurrent_user_number,omitempty"`
 }
 
 // TODO check if it fits into one of the artifacts templates
@@ -54,12 +56,13 @@ func (b Blueprint) ExposeYaml(filePath string) error {
 		return err
 	}
 	bpfy := blueprintForYaml{
-		ProjectPath:         b.NonInfra.ProjectPath,
-		ProgrammingLanguage: string(b.NonInfra.ProgrammingLanguage),
-		VMGroupSize:         string(b.Infra.Size),
-		ResourceGroupName:   b.Misc.ResourceGroupName,
-		Location:            b.Misc.Location,
-		AdminName:           b.Misc.AdminName,
+		ProjectPath:          b.NonInfra.ProjectPath,
+		ProgrammingLanguage:  string(b.NonInfra.ProgrammingLanguage),
+		VMGroupSize:          string(b.Infra.Size),
+		ResourceGroupName:    b.Misc.ResourceGroupName,
+		Location:             b.Misc.Location,
+		AdminName:            b.Misc.AdminName,
+        ConcurrentUserNumber: b.Misc.ConcurrentUserNumber,
 	}
 	// TODO support more. Assume at most one database for now.
 	if len(b.NonInfra.Databases) > 0 {
@@ -116,8 +119,8 @@ func ImportBlueprintYaml(filePath string) (Blueprint, error) {
 	s := reflect.ValueOf(&db).Elem()
 	for i := 0; i < s.NumField(); i++ {
 		valField := s.Field(i)
-		val := valField.Interface().(string)
-		if val != "" {
+		val := valField.Interface()
+		if val != reflect.Zero(valField.Type()).Interface() {
 			allEmpty = false
 		}
 	}
@@ -126,9 +129,10 @@ func ImportBlueprintYaml(filePath string) (Blueprint, error) {
 	}
 
 	bp.Misc = Misc{
-		ResourceGroupName: bpfy.ResourceGroupName,
-		Location:          bpfy.Location,
-		AdminName:         bpfy.AdminName,
+		ResourceGroupName:    bpfy.ResourceGroupName,
+		Location:             bpfy.Location,
+		AdminName:            bpfy.AdminName,
+        ConcurrentUserNumber: bpfy.ConcurrentUserNumber,
 	}
 
 	if err = bp.finalValidate(); err != nil {

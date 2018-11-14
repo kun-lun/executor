@@ -33,7 +33,7 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:350772c9c1e9e4585cac394dcf55e3f2cf18aaf9b25b7fefa271dff96f50a054"
+  digest = "1:993408e44550df3589992e69650131e44b2d394178a1a337f2191b96de8be933"
   name = "github.com/kun-lun/artifacts"
   packages = [
     "pkg/apis",
@@ -41,7 +41,7 @@
     "pkg/apis/deployments",
   ]
   pruneopts = "UT"
-  revision = "58f656608dad4fde33d45153e339aa6a23a70fe4"
+  revision = "435351e02127e920dd163a1c2f30bfd37f3e3e1f"
 
 [[projects]]
   branch = "draft"
@@ -56,11 +56,11 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:3b123175a03dc3a954cead7e62bda3db250d787b6c3eefbdf18042b4255d0d72"
+  digest = "1:a340268e812d783df9077e1086cd3f2aa12df72f0e41d99376ccde0adcbde2a6"
   name = "github.com/kun-lun/built-in-roles"
   packages = ["pkg/apis"]
   pruneopts = "UT"
-  revision = "a804029985d0f76872066bd99778aecd24fcd648"
+  revision = "cc5544ab3325c2026007a4644aeaf480ab1624fe"
 
 [[projects]]
   branch = "draft"
@@ -91,22 +91,16 @@
 
 [[projects]]
   branch = "draft"
-  digest = "1:bfc94c47f34550df15ed002a9152fb14563f03bc8997180e2760564e998afb68"
+  digest = "1:ff0b74dba94c5fa2a1a400fbc2bbd06e9ffcbe58c1d9e829871fec95422306dc"
   name = "github.com/kun-lun/digester"
   packages = [
     "pkg/apis",
     "pkg/common",
-    "pkg/detector",
-    "pkg/detector/frameworks/laravel5",
-    "pkg/detector/frameworks/null",
-    "pkg/detector/packagemanagers/composer",
-    "pkg/detector/packagemanagers/null",
-    "pkg/detector/util",
     "pkg/questionnaire",
     "pkg/vmgroupcalc",
   ]
   pruneopts = "UT"
-  revision = "58b36a46e21971279b86a175be0fbec90e44e873"
+  revision = "953c61dbc0d6e56aff5ad4145f9ff48b044a79c8"
 
 [[projects]]
   branch = "draft"
@@ -117,7 +111,7 @@
     "pkg/apis",
   ]
   pruneopts = "UT"
-  revision = "6aca19a7434d3cf44d4790b62d9461f81963b9bc"
+  revision = "a54b1695dcb1fe0a44dcb4676083ab267fee2711"
 
 [[projects]]
   branch = "draft"
@@ -248,7 +242,7 @@
     "html/charset",
   ]
   pruneopts = "UT"
-  revision = "03003ca0c849e57b6ea29a4bab8d3cb6e4d568fe"
+  revision = "88d92db4c548972d942ac2a3531a8a9a34c82ca6"
 
 [[projects]]
   branch = "master"
