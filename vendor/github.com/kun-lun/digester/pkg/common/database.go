@@ -2,8 +2,8 @@ package common
 
 import (
 	"fmt"
-	"strconv"
 	"reflect"
+	"strconv"
 )
 
 type Database struct {
@@ -25,21 +25,21 @@ type Database struct {
 func (d Database) ValidateField(fieldName string, input string, field *reflect.Value) error {
 	if field.Kind() == reflect.String {
 		switch fieldName {
-			case "Driver":
-				switch input {
-				case "mysql":
-					break
-				default:
-					return fmt.Errorf("Not support %s", input)
-				}
-			case "Version":
-				switch input {
-				case "5.6":
-				case "5.7":
-					break
-				default:
-					return fmt.Errorf("Not support %s", input)
-				}
+		case "Driver":
+			switch input {
+			case "mysql":
+				break
+			default:
+				return fmt.Errorf("Not support %s", input)
+			}
+		case "Version":
+			switch input {
+			case "5.6":
+			case "5.7":
+				break
+			default:
+				return fmt.Errorf("Not support %s", input)
+			}
 		}
 		field.SetString(input)
 	}
