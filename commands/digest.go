@@ -52,7 +52,7 @@ func (p Digest) ParseArgs(args []string, state storage.State) (DiegestConfig, er
 		config DiegestConfig
 	)
 
-	digestFlags := flags.New("digest")
+	digestFlags := flags.New("analyze")
 	digestFlags.String(&config.Name, "name", os.Getenv("KL_ENV_NAME"))
 
 	err := digestFlags.Parse(args)
